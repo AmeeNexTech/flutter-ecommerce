@@ -5,13 +5,13 @@ The app aims to provide a complete online shopping experience, including order t
 
 ---
 
-## ✅ Current Progress
-
-- ✅ **Completed the onboarding screens**  
-  ![Onboarding](assets/screenshots/onboarding.png)
+## Current Progress
 
 - ✅ **Completed the language selection screen**  
   ![Language Selection](assets/screenshots/language_selection.png)
+
+- ✅ **Completed the onboarding screens (Supports Arabic and English)**  
+  ![Onboarding](assets/screenshots/onboarding.png)
 
 - 🔧 **Currently working on login and password recovery screens**
 
