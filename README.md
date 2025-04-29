@@ -32,7 +32,7 @@ The app aims to provide a complete online shopping experience, including order t
 | **Flutter** | Mobile app UI development |
 | **Dart** | Programming language |
 | **GetX** | State management, routing, dependency injection |
-| **Firebase** | Authentication and push notifications |
+| **Firebase** | Used for push notifications (authentication is handled via backend) |
 | **MySQL** | Database for application data storage |
 | **PHP** | Backend API to connect the Flutter app with the database |
 
