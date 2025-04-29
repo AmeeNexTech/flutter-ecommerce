@@ -11,7 +11,8 @@
  
   //(MVC⚙️) تقسيم فكره التنسيق – مين مسؤول عن إيه؟
 
-      >1- Model : file(onboardingmodel.dart) // >>> Slide: ده بيحدد شكل الداتا اللي بتظهر في كل ======================================================
+
+      >1- Model : file(onboardingmodel.dart) // >>> Slide: ده بيحدد شكل الداتا اللي بتظهر في كل 
         - class OnBoardingModel {  //(Object) ذا كلاس عادي يمثل كائن 
             final String? title;  // العنوان
             final String? img;    // الوصف
@@ -19,7 +20,8 @@
             OnBoardingModel({this.body, this.img, this.title});
           }
 
-      >2- Data Source :  file(static.dart) // >>> OnBoardingModel من Object هو Slide هنا مركز البينات الثابته الذي يكون كل ======================================================
+
+      >2- Data Source :  file(static.dart) // >>> OnBoardingModel من Object هو Slide هنا مركز البينات الثابته الذي يكون كل 
             - List<OnBoardingModel> onBoardingList = [
                 OnBoardingModel(
                   title: "Choose Priduct",
@@ -34,8 +36,9 @@
             ]  // يساعد جدا في تنظيم وادخال وعرض البينات
             - جاهزة OnBoarding هنا عندنا قائمة بيانات فيها4 شاشات 
             - PageView كل واحدة فيها عنوان، وصف، وصورة. ودي هي اللي بتتكرر جوه 
+            
 
-      >3- Controller : file(onboarding_controller.dart) //>>> OnBoardingControllerImp ده قلب المشروع! يحتوي على  ================================================
+      >3- Controller : file(onboarding_controller.dart) //>>> OnBoardingControllerImp ده قلب المشروع! يحتوي على  
             - (واجهة المستخدم) UI بالـ (Logic) وهي المسؤولة عن إدارة التنقل بين الشرائح والتحكم في الحالة ربط المنطق
             1- التعريف بالملف:
               - abstract class OnboardingController extends GetxController {  // عشان احنا بعدين هنشتغل بيها لما نورث منة GetxController وهنا يرث من
@@ -78,7 +81,8 @@
               super.onInit();
             }  //الكونترولر عند بداية تشغيله (initialization) الهدف: تهيئة.
 
-      >4- Viwe: منفصلة، Widgets إلى عدة OnBoarding تم تقسيم الصفحة الرئيسية =====================================================================================
+
+      >4- Viwe: منفصلة، Widgets إلى عدة OnBoarding تم تقسيم الصفحة الرئيسية 
         -GetX باستخدام OnBoardingControllerImp مرتبط بالـ Widget وكل
         - الخطوات التي يتم فيها الربط:
 
@@ -112,7 +116,8 @@
             > 1- CustomSliderOnBoarding :onboardingحيث يمكن التمرير بين صفحات الـPageViewيعرض الـ Widget هذا الـ
               //extends GetView<OnBoardingControllerImp> من قبل في صفحه العرض الان يمكننا الوصول مثلا باستخدام OnBoardingControllerImp ولاننا قمنا بحقن
                 -Get.find() تلقائيا يمكننا استخدامه للوصول الي اي شئ داخل كلاس كنترولر الذي حدته وهكذا لا نحتاج الي controller وهذه توفر لنا 
-                    class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> { //الذي يوفره تلقائيا controller باستخدام  OnBoardingControllerImp هنا يتم الوصول لما هوا داخل
+                    class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> { 
+                    //الذي يوفره تلقائيا controller باستخدام  OnBoardingControllerImp هنا يتم الوصول لما هوا داخل
                       Widget build(BuildContext context) {
                         return PageView.builder(  // هيا تسمح بعض سلايدات التي تمرر
                           controller: controller.pageController,  //وهكذا الذي داخل الكنترولر يتصرف انه هوا PageController ربط الـ 
@@ -139,7 +144,8 @@
                   class CustomDotOnBoarding extends StatelessWidget {
                     Widget build(BuildContext context) {
                       return GetBuilder<OnBoardingControllerImp>(  
-                        //للوصول ما داخل كلاس الكنترولر builder: (controller) اذا حدث اي تغيير فيه تعيد بناء ما داخلها وتستخدم OnBoardingControllerImp تترقب ل GetBuilder هنا 
+                        //للوصول ما داخل كلاس الكنترولر 
+                        builder: (controller) اذا حدث اي تغيير فيه تعيد بناء ما داخلها وتستخدم OnBoardingControllerImp تترقب ل GetBuilder هنا 
                         //builder يُعاد بناء الواجهة داخل update() وتم استدعاء (currentPage مثل ) كلما تغيرت المتغيرات فيه
                         builder: (controller) => Row( // تستخدم لعرض النقاط بجانب بعض في صف.
                           mainAxisAlignment: MainAxisAlignment.center,  // يجعلها في منتصف الشاشة أفقيًا.
@@ -152,7 +158,8 @@
                               decoration: BoxDecoration(
                                 gradient: controller.currentPage == index
                                     ? LinearGradient(colors: [AppColor.primaryColor, AppColor.primaryColor.withOpacity(0.6)])
-                                    : LinearGradient(colors: [AppColor.primaryColor.withOpacity(0.3), AppColor.primaryColor.withOpacity(0.1)]),
+                                    : LinearGradient(colors: [AppColor.primaryColor.withOpacity(0.3), 
+                                    AppColor.primaryColor.withOpacity(0.1)]),
                                 borderRadius: BorderRadius.circular(50),  // يجعل النقطة دائرية أو بيضاوية
                               ),
                             ),
@@ -182,7 +189,8 @@
         > 1- Services: انشئنا خدمه التخزين لحفظ الحاله واي شئ نحتاجه في االتخزين المحلي واي شئ نريد استدعائه قبل بدء التطبيق  
           class MyServices extends GetxService { 
              //وهوا كلاس خاص يسمح بإنشاء خدمات تشتغل طول عمر التطبيق (مثل التخزين، الإعدادات، الاتصال بالإنترنت...) GetxService هذا الكلاس يرث من 
-            late SharedPreferences sharedPreferences; //لأنه راح يتم تهيئته لاحقًا late استخدمنا SharedPreferences من نوع sharedPreferences هنا بنجهز متغير اسمه
+            late SharedPreferences sharedPreferences;
+            //لأنه راح يتم تهيئته لاحقًا late استخدمنا SharedPreferences من نوع sharedPreferences هنا بنجهز متغير اسمه
             Future<MyServices> init() async { //إنه يجهز نفسه SharedPreferences داخلها بنطلب من (Future) ترجع مستقبل init()هذه دالة 
               sharedPreferences = await SharedPreferences.getInstance(); //وخزنها داخل المتغير SharedPreferences هذه السطر معناها "هاتلي نسخة من
               return this;  // علشان نقدر نستخدمه بعدين (MyServices يعني نرجع الكائن الحالي من ) this في الآخر نرجع
@@ -239,7 +247,8 @@
                 MyServices myServices = Get.find(); //وتخزين فيه وقرائه ما فيه اذا كان مخزن sharedPreferences للوصول لل MyServices لجلب الكائن
 
                 changeLang(String langcode) {  // داله تستقبل  كود الغه وهو نص
-                  Locale locale = Locale(langcode);  //تقبل هذا النوع وليس نص الكود Get.updateLocale(Localel) لان Locale إلى كائن ("ar" أو "en") يحول كود اللغه  
+                  Locale locale = Locale(langcode); 
+                  //تقبل هذا النوع وليس نص الكود Get.updateLocale(Localel) لان Locale إلى كائن ("ar" أو "en") يحول كود اللغه  
                   myServices.sharedPreferences.setString("lang", langcode); //"lang" باسم SharedPreferences يخزّن كود اللغة اللي اختارها المستخدم في
                   language = locale;  //للوصول له من اي مكان language خزن اللغة المختارة في المتغير
                   Get.updateLocale(locale); // GetX يحدّث لغة التطبيق في كل الصفحات باستخدام 
@@ -256,7 +265,8 @@
                     language = const Locale("en");
                     //ليتم عرضها locale: controller.language, لانه سيمرر وقتها في الصفحه الرئيسيه الي Locale وهما من نفس النوع language يقوم باسناد الكود الي
                   } else { // لو لا يوجد لغه محفوظه
-                    language = Locale(Get.deviceLocale!.languageCode); //اي ليس له علاقه ب المعرف الذي اتلاقاه Get.deviceLocale. معرف داخل languageCode يأخذ لغة الجهاز تلقائيًا وهذا 
+                    language = Locale(Get.deviceLocale!.languageCode); 
+                    //اي ليس له علاقه ب المعرف الذي اتلاقاه Get.deviceLocale. معرف داخل languageCode يأخذ لغة الجهاز تلقائيًا وهذا 
                     // اي يحولها لتتناسب معه Locale وايضا هنا ياخذها في صيغه
                     myServices.sharedPreferences.setString(  // >>> لأول مرة SharedPreferences ثم يحفظ اللغة المختارة في
                       "lang",
