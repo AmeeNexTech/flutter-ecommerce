@@ -26,6 +26,7 @@ class OnBoarding extends GetView<OnBoardingControllerImp> {
                 flex: 2,
                 child: Column(
                   children: [
+                    SizedBox(height: 30),
                     CustomDotOnBoarding(),
                     SizedBox(height: 60),
                     CustomButtonOnBoarding(
