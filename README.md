@@ -41,7 +41,7 @@ The app aims to provide a complete online shopping experience, including order t
 ## Project Documentation
 A separate documentation file has been created to explain each part of the application step-by-step, including detailed comments and insights.  
 You can view it here:  
-📄 [Project Documentation](https://github.com/AmeeNexTech/flutter-project-1/blob/main/Project_Documentation.md)
+📄 [Project Documentation](https://github.com/AmeeNexTech/flutter-ecommerce/blob/main/Project_Documentation.md)
 
 ---
 
