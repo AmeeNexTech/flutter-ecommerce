@@ -14,24 +14,24 @@
 
       >1- Model : file(onboardingmodel.dart) // >>> Slide: ده بيحدد شكل الداتا اللي بتظهر في كل 
         - class OnBoardingModel {  //(Object) ذا كلاس عادي يمثل كائن 
+            final String? img;   // مسار الصورة
             final String? title;  // العنوان
-            final String? img;    // الوصف
-            final String? body;   // مسار الصورة
-            OnBoardingModel({this.body, this.img, this.title});
+            final String? body;    // الوصف
+            OnBoardingModel({this.img, this.title, this.body});
           }
 
 
       >2- Data Source :  file(static.dart) // >>> OnBoardingModel من Object هو Slide هنا مركز البينات الثابته الذي يكون كل 
             - List<OnBoardingModel> onBoardingList = [
                 OnBoardingModel(
+                  img: AppImageasset.onboardingOne, // مسار الصوره من كلاس الثوابت
                   title: "Choose Priduct",
                   body:"We Have a 100K+ Products.",
-                  img: AppImageasset.onboardingOne, // مسار الصوره من كلاس الثوابت
                 ),
                 OnBoardingModel(
+                  img: AppImageasset.onboardingTwo,
                   title: "Easy & Safe Payment",
                   body:"Easy Checkout & Safe Payment.",
-                  img: AppImageasset.onboardingTwo,
                 ),
             ]  // يساعد جدا في تنظيم وادخال وعرض البينات
             - جاهزة OnBoarding هنا عندنا قائمة بيانات فيها4 شاشات 
@@ -40,23 +40,27 @@
 
       >3- Controller : file(onboarding_controller.dart) //>>> OnBoardingControllerImp ده قلب المشروع! يحتوي على  
             - (واجهة المستخدم) UI بالـ (Logic) وهي المسؤولة عن إدارة التنقل بين الشرائح والتحكم في الحالة ربط المنطق
+           
             1- التعريف بالملف:
-              - abstract class OnboardingController extends GetxController {  // عشان احنا بعدين هنشتغل بيها لما نورث منة GetxController وهنا يرث من
+              - abstract class OnboardingController extends GetxController {  // عشان احنا بعدين نرث منة GetxController وهنا يرث من
                   next();
                   onPageChanged(int index);
                 }  //next() و onPageChanged() الهدف منه تنظيم الكود، وفرض أن أي كلاس يرث منه لازم يطبّق الدوال
+          
             2- الكلاس الرئيسي:
               - class OnBoardingControllerImp extends OnboardingController {} //OnboardingController هو يرث من
               - هذا هو الكونترولر الفعلي اللي راح تشتغل عليه
-              - Implementation اختصار لـ Imp الكلمة 
+
+          
             3- المتغيرات المهمة: 
               -late PageController pageController; //(Slides) اللي يعرض الشرائح PageView يتحكم في
                 - من خلاله تستطيع النتقال لسليد معين اعرف معرف الصفحه الحاليه والتحكم في حرجه الصفحات
-                -PageView(controller: controller.pageController) مثلا PageView نقوم بربطه بتمريره ل 
-                -PageView وتم ربطه في  OnBoardingControllerImp وهنا الكونترولر من نوع 
+                 // -PageView(controller: controller.pageController) مثلا PageView نقوم بربطه بتمريره ل 
+                 // -PageView وتم ربطه في  OnBoardingControllerImp وهنا الكونترولر من نوع 
                 -لانه سيتم تهئته لاحقا قبل استخدامه late وهنا عرفنا المتغير وجعلناه
                 -وربطناه بالمتغير PageController يعني هنا أنشأنا فعليًا كائن من onInit() وتكون التهئه داخل
               -int currentPage = 0;  // (slide الحالي). رقم الصفحة الحالية
+        
           4- دالة next():  // الهدف: الانتقال للصفحة التالية
             - next() {
                 if (currentPage >= onBoardingList.length - 1) { // لو كانت آخر صفحة → ينتقل لصفحة تسجيل الدخول.
@@ -70,11 +74,13 @@
                   );  // animateToPage غير كده → يزيد رقم الصفحة بـ 1 ويفتح الصفحة التالية بـ .
                 }  //onPageChanged(currentPage) وهكذا يتم تغيير رقم الصفحه الحاليه للسليد فتقوم بعمل تشغيل لداله 
               } //update() وتمرير رقم السليد الحالي للبيج فيو ب
+         
           5-  دالة onPageChanged(int index)
           -onPageChanged(int index) {
               currentPage = index; //next() لمعرف اين نحن الان لاستخدامه في المره القادمه في pageView وهيا ستمرر في currentPage تحدث قيمة 
               update();  // يتم استدعاء عشان أي واجهة مربوطة بهذا الكونترولر تتحدث تلقائيًا.
             }
+            
           6-onInit():
             -void onInit() {
               pageController = PageController();
