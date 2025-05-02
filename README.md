@@ -31,16 +31,32 @@ The app aims to provide a complete online shopping experience, including order t
 
 ---
 
-## 🧰 Tech Stack
+## 🧰 Tech Stack & Tools
 
-| Technology   | Usage                                              |
-|--------------|----------------------------------------------------|
-| **Flutter**  | Mobile app UI development                         |
-| **Dart**     | Programming language                               |
-| **GetX**     | State management, routing, dependency injection   |
-| **Firebase** | Push notifications (authentication via backend)  |
-| **MySQL**    | Database for application data storage             |
-| **PHP**      | Backend API to connect Flutter app with database  |
+| Technology / Tool                              | Purpose / Usage                                                                 |
+|------------------------------------------------|----------------------------------------------------------------------------------|
+| **Flutter**                                    | Cross-platform mobile app development                                           |
+| **Dart**                                       | Main programming language for Flutter                                           |
+| **GetX**                                       | State management, routing, dependency injection                                 |
+| **Firebase**                                   | Push notifications (authentication handled via backend)                         |
+| **MySQL**                                      | Relational database to store application data                                   |
+| **PHP (Laravel)**                              | Backend API to connect the Flutter app with the database                        |
+| **Laravel Sanctum**                            | Token-based authentication and API protection                                   |
+| **Form Requests (Laravel)**                    | Secure and centralized API request validation                                   |
+| **CORS & CSRF Config**                         | Secure API communication and protection                                         |
+| **flutter_secure_storage**                     | Securely store tokens and login credentials locally                             |
+| **shared_preferences**                         | Store user preferences and app settings locally                                 |
+| **Dio + Interceptors**                         | Advanced API client with error handling, loading indicators, and logging        |
+| **Freezed + JsonSerializable**                 | Clean, immutable models with automatic JSON serialization                       |
+| **flutter_screenutil / responsive_framework**  | Responsive UI support across different screen sizes                             |
+| **flutter_native_splash + launcher_icons**     | Improve first impression and app branding                                       |
+| **Shimmer / Skeleton Loading**                 | Loading placeholders while data is fetched                                      |
+| **Scroll to Top + Lazy Loading**               | Efficient navigation and on-demand data loading                                 |
+| **Empty & Error States**                       | Better user feedback for empty lists and API errors                             |
+| **flutter_lints**                              | Code quality enforcement and style consistency                                  |
+| **integration_test**                           | Full app testing for login, purchase flows, and more                            |
+| **Rate Limiting (Laravel)**                    | Prevent brute-force attacks and abuse of API endpoints                          |
+
 
 ---
 
@@ -60,6 +76,13 @@ The project is under **active development**, with regular updates made as progre
 
 ## 💡 Notes
 
-This is a **personal project** developed by an enthusiastic beginner developer passionate about building high-quality mobile applications.  
-The purpose of this project is to **learn, grow, and document the experience** of developing a full e-commerce application from scratch.  
-I am sharing this project to better understand myself and track my journey in mobile app development.
+This is a **personal project** built by a passionate beginner developer focused on creating high-quality mobile apps.  
+The goal of this project is to **learn, grow, and document** the journey of building a full-featured e-commerce app from scratch.  
+By sharing this project, I aim to reflect on my progress and provide value to others who may be learning as well.
+
+---
+
+## 🙋‍♂️ How to Contribute
+
+This is a learning project, but feel free to open issues, suggest improvements, or fork it to build your own version!
+
