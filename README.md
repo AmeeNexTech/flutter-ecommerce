@@ -69,6 +69,14 @@ I’ve tried to break down the logic, structure, and purpose behind every main f
 🌐 [Localization System](https://github.com/AmeeNexTech/flutter-ecommerce/blob/main/docs/localization.md) — How language selection, translations, and persistent language settings are implemented
 
 ---
+## 🛠️ Solved Issues
+
+During development, I encountered several technical problems and documented how I solved them.  
+These are now shared for others (and my future self!) to learn from and reference easily.
+
+📁 [issues_solved/](https://github.com/AmeeNexTech/flutter-ecommerce/tree/main/issues_solved)
+
+---
 
 ## 🚧 Project Status
 
