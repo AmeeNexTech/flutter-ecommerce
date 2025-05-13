@@ -34,7 +34,7 @@ The app aims to provide a complete online shopping experience, including order t
 ## 🧰 Tech Stack & Tools
 
 | Technology / Tool                              | Purpose / Usage                                                                 |
-|------------------------------------------------|----------------------------------------------------------------------------------|
+|------------------------------------------------|---------------------------------------------------------------------------------|
 | **Flutter**                                    | Cross-platform mobile app development                                           |
 | **Dart**                                       | Main programming language for Flutter                                           |
 | **GetX**                                       | State management, routing, dependency injection                                 |
@@ -42,7 +42,6 @@ The app aims to provide a complete online shopping experience, including order t
 | **MySQL**                                      | Relational database to store application data                                   |
 | **PHP (Laravel)**                              | Backend API to connect the Flutter app with the database                        |
 | **Laravel Sanctum**                            | Token-based authentication and API protection                                   |
-| **Form Requests (Laravel)**                    | Secure and centralized API request validation                                   |
 | **CORS & CSRF Config**                         | Secure API communication and protection                                         |
 | **flutter_secure_storage**                     | Securely store tokens and login credentials locally                             |
 | **shared_preferences**                         | Store user preferences and app settings locally                                 |
