@@ -33,28 +33,24 @@ The app aims to provide a complete online shopping experience, including order t
 
 ## 🧰 Tech Stack & Tools
 
-| Technology / Tool                              | Purpose / Usage                                                                 |
-|------------------------------------------------|---------------------------------------------------------------------------------|
-| **Flutter**                                    | Cross-platform mobile app development                                           |
-| **Dart**                                       | Main programming language for Flutter                                           |
-| **GetX**                                       | State management, routing, dependency injection                                 |
-| **Firebase**                                   | Push notifications (authentication handled via backend)                         |
-| **MySQL**                                      | Relational database to store application data                                   |
-| **PHP (Laravel)**                              | Backend API to connect the Flutter app with the database                        |
-| **Laravel Sanctum**                            | Token-based authentication and API protection                                   |
-| **CORS & CSRF Config**                         | Secure API communication and protection                                         |
-| **flutter_secure_storage**                     | Securely store tokens and login credentials locally                             |
-| **shared_preferences**                         | Store user preferences and app settings locally                                 |
-| **Dio + Interceptors**                         | Advanced API client with error handling, loading indicators, and logging        |
-| **Freezed + JsonSerializable**                 | Clean, immutable models with automatic JSON serialization                       |
-| **flutter_screenutil / responsive_framework**  | Responsive UI support across different screen sizes                             |
-| **flutter_native_splash + launcher_icons**     | Improve first impression and app branding                                       |
-| **Shimmer / Skeleton Loading**                 | Loading placeholders while data is fetched                                      |
-| **Scroll to Top + Lazy Loading**               | Efficient navigation and on-demand data loading                                 |
-| **Empty & Error States**                       | Better user feedback for empty lists and API errors                             |
-| **flutter_lints**                              | Code quality enforcement and style consistency                                  |
-| **integration_test**                           | Full app testing for login, purchase flows, and more                            |
-| **Rate Limiting (Laravel)**                    | Prevent brute-force attacks and abuse of API endpoints                          |
+| Layer                    | Technology / Tool               | Purpose / Usage                                                                 |
+|--------------------------|----------------------------------|----------------------------------------------------------------------------------|
+| **Frontend (Flutter)**   | **Flutter + Dart**               | Cross-platform mobile app development using Dart                                 |
+|                          | **GetX**                         | Efficient state management, routing, and dependency injection                    |
+|                          | **Dio + Interceptors**           | HTTP client with advanced logging, error handling, and token refresh             |
+|                          | **flutter_secure_storage**       | Securely store sensitive data like tokens locally                                |
+|                          | **shared_preferences**           | Store non-sensitive user settings locally                                        |
+|                          | **Freezed + JsonSerializable**   | Define immutable models with auto JSON serialization                             |
+
+| **Backend**              | **Laravel (PHP)**                | RESTful API backend framework                                                    |
+|                          | **Laravel Sanctum**              | Lightweight API token authentication                                             |
+|                          | **MySQL**                        | Relational database for persistent app data                                      |
+
+| **Notifications**        | **Firebase Cloud Messaging**     | Push notification service                                                        |
+
+| **Testing**              | **integration_test**             | End-to-end testing for core user flows                                           |
+
+---
 
 
 ---
