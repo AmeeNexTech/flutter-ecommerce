@@ -41,13 +41,10 @@ The app aims to provide a complete online shopping experience, including order t
 |                          | **flutter_secure_storage**       | Securely store sensitive data like tokens locally                                |
 |                          | **shared_preferences**           | Store non-sensitive user settings locally                                        |
 |                          | **Freezed + JsonSerializable**   | Define immutable models with auto JSON serialization                             |
-
 | **Backend**              | **Laravel (PHP)**                | RESTful API backend framework                                                    |
 |                          | **Laravel Sanctum**              | Lightweight API token authentication                                             |
 |                          | **MySQL**                        | Relational database for persistent app data                                      |
-
 | **Notifications**        | **Firebase Cloud Messaging**     | Push notification service                                                        |
-
 | **Testing**              | **integration_test**             | End-to-end testing for core user flows                                           |
 
 ---
