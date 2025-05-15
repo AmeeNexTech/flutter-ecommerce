@@ -1,0 +1,67 @@
+import 'package:ecommerceshoporia/core/constant/color.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class Customtextformauth extends StatelessWidget {
+  final String? labeltext;
+  final IconData? iconData;
+  final TextEditingController? mycontroller;
+  const Customtextformauth({
+    super.key,
+    required this.labeltext,
+    required this.iconData,
+    required this.mycontroller,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: mycontroller,
+      cursorColor: AppColor.primaryColor,
+      style: const TextStyle(
+        fontSize: 16,
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+      ),
+      decoration: InputDecoration(
+        isDense: true,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 20,
+        ),
+        labelText: labeltext,
+        labelStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: AppColor.grey.withOpacity(0.8),
+          fontSize: 16,
+          height: 1.3,
+          fontWeight: FontWeight.w500,
+        ),
+        suffixIcon: Icon(
+          iconData,
+          color: AppColor.grey.withOpacity(0.7),
+          size: 22,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: AppColor.grey.withOpacity(0.5),
+            width: 1.2,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: AppColor.primaryColor, width: 2.0),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Colors.red, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Colors.red, width: 2.0),
+        ),
+      ),
+    );
+  }
+}

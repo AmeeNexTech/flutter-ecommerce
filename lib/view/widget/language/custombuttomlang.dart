@@ -10,20 +10,28 @@ class Custombuttomlang extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      color: AppColor.primaryColor,
-      textColor: Colors.white,
+    return OutlinedButton(
       onPressed: onPressed,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      style: OutlinedButton.styleFrom(
+        side: BorderSide(color: AppColor.primaryColor, width: 2),
+        foregroundColor: AppColor.primaryColor,
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        backgroundColor: Colors.white.withOpacity(0.05),
+        elevation: 0,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.language, color: Colors.white),
-          const SizedBox(width: 12),
+          const Icon(Icons.language, size: 20),
+          const SizedBox(width: 10),
           Text(
             textbutton,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1.1,
+            ),
           ),
         ],
       ),

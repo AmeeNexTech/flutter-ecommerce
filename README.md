@@ -50,26 +50,6 @@ The app aims to provide a complete online shopping experience, including order t
 ---
 
 
----
-
-## 📄 Project Documentation
-
-The documentation is written from my personal learning journey, aiming to explain each part of the app in a clear and simple way.  
-I’ve tried to break down the logic, structure, and purpose behind every main feature to help myself — and hopefully others — better understand how things work.
-
-🧭 [Onboarding Flow](https://github.com/AmeeNexTech/flutter-ecommerce/blob/main/docs/onboarding.md) — Full breakdown of the onboarding logic using GetX, MVC, and PageView  
-🌐 [Localization System](https://github.com/AmeeNexTech/flutter-ecommerce/blob/main/docs/localization.md) — How language selection, translations, and persistent language settings are implemented
-
----
-## 🛠️ Solved Issues
-
-During development, I encountered several technical problems and documented how I solved them.  
-These are now shared for others (and my future self!) to learn from and reference easily.
-
-📁 [issues_solved/](https://github.com/AmeeNexTech/flutter-ecommerce/tree/main/issues_solved)
-
----
-
 ## 🚧 Project Status
 
 The project is under **active development**, with regular updates made as progress continues.
