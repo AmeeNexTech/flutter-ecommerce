@@ -11,15 +11,15 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   TextEditingController password = TextEditingController();
   TextEditingController repassword = TextEditingController();
 
-
   @override
   goTosuccessresetpassword() {
     Get.offAllNamed(AppRoute.successresetpassword);
   }
-  @override
-  resetPassword(){}
 
-    @override
+  @override
+  resetPassword() {}
+
+  @override
   void dispose() {
     password.dispose();
     repassword.dispose();
