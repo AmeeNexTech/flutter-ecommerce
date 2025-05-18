@@ -3,7 +3,6 @@ import 'package:ecommerceshoporia/core/localization/translation.dart';
 import 'package:ecommerceshoporia/core/services/services.dart';
 import 'package:ecommerceshoporia/routes.dart';
 import 'package:ecommerceshoporia/firebase_options.dart';
-import 'package:ecommerceshoporia/test.dart';
 import 'package:ecommerceshoporia/view/screen/language.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

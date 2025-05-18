@@ -1,7 +1,6 @@
 import 'package:ecommerceshoporia/controller/auth/verifycode_controller.dart';
 import 'package:ecommerceshoporia/core/constant/color.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauthandback.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextroutto.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
