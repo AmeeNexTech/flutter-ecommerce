@@ -47,7 +47,9 @@ class Login extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.goToRecoverPassword();
+                },
                 child: Text(
                   "sign6".tr,
                   style: TextStyle(

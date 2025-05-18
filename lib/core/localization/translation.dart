@@ -43,6 +43,30 @@ class MyTranslation extends Translations {
       "fieldPassword": "كلمة المرور",
       "signUp4": "لديك حساب بالفعل؟",
       "signUp5": "سجّل الدخول",
+
+      'recover_password': 'استعادة كلمة المرور',
+      'recover_password_subtitle': 'استرجاع كلمة المرور',
+      'recover_password_instruction':
+          'أدخل بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور.',
+      'email': 'البريد الإلكتروني',
+      'send_code': 'إرسال الرمز',
+      'remember_password': 'تتذكر كلمة المرور؟',
+      'sign_in': 'تسجيل الدخول',
+
+      'verify_code': 'تحقق من الرمز',
+      'enter_verification_code': 'أدخل رمز التحقق',
+      'code_sent_to': 'تم إرسال رمز مكون من 6 أرقام إلى بريدك الإلكتروني:',
+
+      'reset_password': 'إعادة تعيين كلمة المرور',
+      'reset_password_title': 'أعد تعيين كلمة المرور',
+      'reset_password_instruction': 'أنشئ كلمة مرور جديدة وأكدها للمتابعة.',
+      'enter_password': 'أدخل كلمة المرور',
+      'confirm_password': 'تأكيد كلمة المرور',
+      'save': 'حفظ',
+
+      'success': 'تم بنجاح',
+      'password_reset_successful': 'تمت إعادة تعيين كلمة المرور بنجاح',
+      'go_to_login': 'الذهاب إلى تسجيل الدخول',
     },
     "en": {
       "1": "Language",
@@ -85,6 +109,31 @@ class MyTranslation extends Translations {
       "fieldPassword": "Password",
       "signUp4": "Already have an account?",
       "signUp5": "Sign In",
+
+      'recover_password': 'Recover Password',
+      'recover_password_subtitle': 'Recover your password',
+      'recover_password_instruction':
+          'Enter your email and we will send you a code to reset your password.',
+      'email': 'Email',
+      'send_code': 'Send Code',
+      'remember_password': 'Remember your password?',
+      'sign_in': 'Sign In',
+
+      'verify_code': 'Verify Code',
+      'enter_verification_code': 'Enter Verification Code',
+      'code_sent_to': 'We sent a 6-digit code to your email: ',
+
+      'reset_password': 'Reset Password',
+      'reset_password_title': 'Reset Your Password',
+      'reset_password_instruction':
+          'Create a new password and confirm it to continue.',
+      'enter_password': 'Enter password',
+      'confirm_password': 'Confirm password',
+      'save': 'Save',
+
+      'success': 'Successfully completed',
+      'password_reset_successful': 'Password Reset Successful',
+      'go_to_login': 'Go to Login',
     },
   };
 }
