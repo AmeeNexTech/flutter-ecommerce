@@ -8,7 +8,7 @@ class CustomTextroutto extends StatelessWidget {
   const CustomTextroutto({
     super.key,
     required this.text,
-    required this.textButton,
+    this.textButton = '',
     required this.onPressed,
   });
 

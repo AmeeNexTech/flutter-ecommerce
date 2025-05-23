@@ -2,13 +2,13 @@ import 'package:ecommerceshoporia/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SuccessResetPasswordController extends GetxController {
+class SuccessSignupController extends GetxController {
   late AnimationController animationController;
   late Animation<double> scaleAnimation;
 
-  void init(TickerProvider vsync) {
+  void init(TickerProvider ticker) {
     animationController = AnimationController(
-      vsync: vsync,
+      vsync: ticker,
       duration: const Duration(milliseconds: 700),
     );
 

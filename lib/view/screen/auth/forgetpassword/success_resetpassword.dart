@@ -1,32 +1,32 @@
-import 'package:ecommerceshoporia/controller/auth/success_signup_controller.dart';
 import 'package:ecommerceshoporia/core/constant/BackgroundContainer.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauth.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ecommerceshoporia/controller/auth/success_reset_password_controller.dart';
 
-class SuccessVerifyEmail extends StatefulWidget {
-  const SuccessVerifyEmail({super.key});
+class SuccessResetPassword extends StatefulWidget {
+  const SuccessResetPassword({super.key});
 
   @override
-  State<SuccessVerifyEmail> createState() => _SuccessVerifyEmailState();
+  State<SuccessResetPassword> createState() => _SuccessResetPasswordState();
 }
 
-class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
+class _SuccessResetPasswordState extends State<SuccessResetPassword>
     with TickerProviderStateMixin {
-  late SuccessSignupController controller;
+  late SuccessResetPasswordController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = Get.find<SuccessSignupController>();
+    controller = Get.find<SuccessResetPasswordController>();
     controller.init(this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Customappbarauth(text: "successs".tr),
+      appBar: Customappbarauth(text: "success".tr),
       body: BackgroundContainer(
         padding: const EdgeInsets.all(20),
         child: Center(
@@ -48,7 +48,7 @@ class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  'done_check'.tr,
+                  'password_reset_successful'.tr,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 22,

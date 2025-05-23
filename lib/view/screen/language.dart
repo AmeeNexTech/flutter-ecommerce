@@ -4,66 +4,67 @@ import 'package:ecommerceshoporia/view/widget/language/custombuttomlang.dart';
 import 'package:ecommerceshoporia/view/widget/onboarding/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-class Language extends GetView<LocaleController> {
+class Language extends StatelessWidget {
   const Language({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<LocaleController>();
+    final screenSize = MediaQuery.of(context).size;
+    final isPortrait = screenSize.height > screenSize.width;
+
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("1".tr, style: Theme.of(context).textTheme.headlineMedium),
-
-              SizedBox(height: 12),
-
-              Text(
-                "2".tr,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-
-              SizedBox(height: 40),
-
-              const SizedBox(height: 20),
-
-              Column(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SizedBox(
+              width: isPortrait ? double.infinity : screenSize.width * 0.6,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 350,
-                    child: Custombuttomlang(
-                      textbutton: "4".tr,
-                      onPressed: () {
-                        controller.changeLang("en");
-                      },
-                    ),
+                  Spacer(flex: isPortrait ? 1 : 2),
+
+                  Text(
+                    "1".tr,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
                   ),
+
+                  const SizedBox(height: 12),
+
+                  Text(
+                    "2".tr,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+
+                  const SizedBox(height: 32),
+
+                  Custombuttomlang(
+                    textbutton: "4".tr,
+                    onPressed: () => controller.changeLang("en"),
+                  ),
+
                   const SizedBox(height: 24),
-                  SizedBox(
-                    width: 350,
-                    child: Custombuttomlang(
-                      textbutton: "5".tr,
-                      onPressed: () {
-                        controller.changeLang("ar");
-                      },
-                    ),
+
+                  Custombuttomlang(
+                    textbutton: "5".tr,
+                    onPressed: () => controller.changeLang("ar"),
                   ),
-                  const SizedBox(height: 42),
+
+                  const SizedBox(height: 32),
 
                   CustomButtonOnBoarding(
                     text: "6".tr,
-                    onPressed: () {
-                      Get.offAllNamed(AppRoute.onboarding);
-                    },
+                    onPressed: () => Get.offAllNamed(AppRoute.onboarding),
                   ),
+
+                  Spacer(flex: isPortrait ? 1 : 2),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),

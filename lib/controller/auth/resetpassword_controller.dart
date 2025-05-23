@@ -4,25 +4,48 @@ import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetPassword();
-  goTosuccessresetpassword();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
   TextEditingController password = TextEditingController();
   TextEditingController repassword = TextEditingController();
 
-  @override
-  goTosuccessresetpassword() {
-    Get.offAllNamed(AppRoute.successresetpassword);
+  String? passwordText;
+  String? repasswordText;
+
+  bool isPasswordHidden = true;
+  bool isconfirmPasswordHidden = true;
+
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+  resetPassword() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      formdata.save();
+
+      Get.offAllNamed(AppRoute.successresetpassword);
+
+      password.clear();
+      repassword.clear();
+    } else {
+      print("Form is not valid");
+    }
+  }
+
+  showPassword() {
+    isPasswordHidden = !isPasswordHidden;
+    update();
+  }
+
+  confirmPassword() {
+    isconfirmPasswordHidden = !isconfirmPasswordHidden;
+    update();
   }
 
   @override
-  resetPassword() {}
-
-  @override
-  void dispose() {
+  void onClose() {
     password.dispose();
     repassword.dispose();
-    super.dispose();
+    super.onClose();
   }
 }

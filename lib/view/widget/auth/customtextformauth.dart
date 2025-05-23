@@ -1,22 +1,36 @@
 import 'package:ecommerceshoporia/core/constant/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Customtextformauth extends StatelessWidget {
   final String? labeltext;
   final IconData? iconData;
   final TextEditingController? mycontroller;
+  final String? Function(String?)? valid;
+  final void Function(String?)? onSaved;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final VoidCallback? suffixIconOnTap;
+
   const Customtextformauth({
     super.key,
     required this.labeltext,
     required this.iconData,
     required this.mycontroller,
+    required this.valid,
+    this.keyboardType = TextInputType.text,
+    this.onSaved,
+    this.obscureText = false,
+    this.suffixIconOnTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: valid,
       controller: mycontroller,
+      onSaved: onSaved,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       cursorColor: AppColor.primaryColor,
       style: const TextStyle(
         fontSize: 16,
@@ -37,10 +51,9 @@ class Customtextformauth extends StatelessWidget {
           height: 1.3,
           fontWeight: FontWeight.w500,
         ),
-        suffixIcon: Icon(
-          iconData,
-          color: AppColor.grey.withOpacity(0.7),
-          size: 22,
+        suffixIcon: IconButton(
+          onPressed: suffixIconOnTap,
+          icon: Icon(iconData, color: AppColor.grey.withOpacity(0.7), size: 22),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),

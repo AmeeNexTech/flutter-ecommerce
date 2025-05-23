@@ -11,9 +11,23 @@ abstract class LoginController extends GetxController {
 class LoginControllerImp extends LoginController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  String? emailText;
+  String? passwordText;
+  bool isPasswordHidden = true;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   @override
-  login() {}
+  login() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      formdata.save();
+      print("valid");
+      email.clear();
+      password.clear();
+    } else {
+      print("not valid");
+    }
+  }
 
   @override
   goToSignUp() {
@@ -25,10 +39,16 @@ class LoginControllerImp extends LoginController {
     Get.toNamed(AppRoute.recoverpassword);
   }
 
+  showPassword() {
+    isPasswordHidden = !isPasswordHidden;
+    update();
+  }
+
   @override
-  void dispose() {
+  void onClose() {
     email.dispose();
     password.dispose();
-    super.dispose();
+
+    super.onClose();
   }
 }

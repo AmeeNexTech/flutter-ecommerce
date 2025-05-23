@@ -9,43 +9,57 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      controller: controller.pageController,
-      onPageChanged: (val) => controller.onPageChanged(val),
-      itemCount: onBoardingList.length,
-      itemBuilder:
-          (context, i) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 50),
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        final isPortrait = orientation == Orientation.portrait;
 
-                Image.asset(
-                  onBoardingList[i].img!,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  height: MediaQuery.of(context).size.height * 0.40,
-                  fit: BoxFit.contain,
+        return PageView.builder(
+          controller: controller.pageController,
+          onPageChanged: (val) => controller.onPageChanged(val),
+          itemCount: onBoardingList.length,
+          itemBuilder:
+              (context, i) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (isPortrait) const SizedBox(height: 50),
+
+                    Image.asset(
+                      onBoardingList[i].img!,
+                      width:
+                          MediaQuery.of(context).size.width *
+                          (isPortrait ? 0.9 : 0.5),
+                      height:
+                          MediaQuery.of(context).size.height *
+                          (isPortrait ? 0.4 : 0.5),
+                      fit: BoxFit.contain,
+                    ),
+
+                    SizedBox(height: isPortrait ? 30 : 10),
+
+                    Flexible(
+                      child: Text(
+                        onBoardingList[i].title!.tr,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                    ),
+
+                    SizedBox(height: isPortrait ? 20 : 10),
+
+                    Flexible(
+                      child: Text(
+                        onBoardingList[i].body!.tr,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                  ],
                 ),
-
-                const SizedBox(height: 70),
-
-                Text(
-                  onBoardingList[i].title!.tr,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-
-                const SizedBox(height: 20),
-
-                Text(
-                  onBoardingList[i].body!.tr,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ],
-            ),
-          ),
+              ),
+        );
+      },
     );
   }
 }

@@ -13,8 +13,36 @@ class SignupControllerImp extends SignupController {
   TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
+
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
+  String? usernameText;
+  String? emailText;
+  String? phoneText;
+  String? passwordText;
+  String? confirmpasswordText;
+
+  bool isPasswordHidden = true;
+
   @override
-  signup() {}
+  signup() {
+    var formdata = formstate.currentState;
+
+    if (formdata!.validate()) {
+      formdata.save();
+
+      Get.toNamed(AppRoute.verifyemail);
+
+      // هنا تقوم بعمل لودنج تحميل حتي تتم عمليات الباك اند ثم تنتقل وبعدها تمسح
+    } else {
+      print("not valid");
+    }
+  }
+
+  showPassword() {
+    isPasswordHidden = !isPasswordHidden;
+    update();
+  }
 
   @override
   goToLogin() {
@@ -22,12 +50,12 @@ class SignupControllerImp extends SignupController {
   }
 
   @override
-  void dispose() {
+  void onClose() {
     username.dispose();
     email.dispose();
     phone.dispose();
     password.dispose();
     confirmpassword.dispose();
-    super.dispose();
+    super.onClose();
   }
 }

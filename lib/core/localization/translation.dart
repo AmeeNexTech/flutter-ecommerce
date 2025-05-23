@@ -66,7 +66,45 @@ class MyTranslation extends Translations {
 
       'success': 'تم بنجاح',
       'password_reset_successful': 'تمت إعادة تعيين كلمة المرور بنجاح',
-      'go_to_login': 'الذهاب إلى تسجيل الدخول',
+      'go_to_login': 'سيتم إعادة توجيهك لتسجيل الدخول.',
+
+      'verify_email': 'تأكيد البريد الإلكتروني',
+      'enter_email_verification_code':
+          'أدخل رمز التحقق المرسل إلى بريدك الإلكتروني',
+      'we_sent_code_to': 'تم إرسال رمز التحقق إلى ',
+      'did_not_receive_code': 'لم يصلك الرمز؟',
+      'resend_code': 'إعادة إرسال الرمز',
+      'successs': 'تم بنجاح',
+      'done_check': 'تم التحقق من بريدك الإلكتروني بنجاح',
+
+      "validation.email.empty": "أدخل البريد الإلكتروني",
+      "validation.email.missing_at": "يجب أن يحتوي على @",
+      "validation.email.missing_dot": "يجب أن يحتوي على نقطة",
+      "validation.email.invalid_format": "الصيغة غير صحيحة",
+
+      "validation.username.empty": "أدخل اسم المستخدم",
+      "validation.username.too_short": "قصير جدًا (3+ أحرف)",
+      "validation.username.too_long": "طويل جدًا (20 كحد أقصى)",
+      "validation.username.invalid_chars": "مسموح بالحروف، الأرقام، و (_) فقط",
+
+      "validation.phone.empty": "أدخل رقم الهاتف",
+      "validation.phone.invalid_format": "الصيغة غير صحيحة (8-15 رقمًا)",
+
+      "validation.password.empty": "أدخل كلمة المرور",
+      "validation.password.too_short": "قصيرة (8+ أحرف)",
+      "validation.password.too_long": "طويلة (32 كحد أقصى)",
+      "validation.password.needs_uppercase": "تحتاج حرفًا كبيرًا",
+      "validation.password.needs_lowercase": "تحتاج حرفًا صغيرًا",
+      "validation.password.needs_number": "تحتاج رقمًا",
+      "validation.password.only_letters_numbers": "فقط حروف وأرقام",
+
+      "validation.confirm_password.empty": "أكد كلمة المرور",
+      "validation.confirm_password.not_match": "غير متطابقة",
+
+      "exit_title": "تأكيد الخروج",
+      "exit_desc": "هل أنت متأكد أنك تريد الخروج من التطبيق؟",
+      "exit_yes": "نعم",
+      "exit_no": "لا",
     },
     "en": {
       "1": "Language",
@@ -133,7 +171,45 @@ class MyTranslation extends Translations {
 
       'success': 'Successfully completed',
       'password_reset_successful': 'Password Reset Successful',
-      'go_to_login': 'Go to Login',
+      'go_to_login': "You will be redirected to log in.",
+
+      'verify_email': 'Verify Email',
+      'enter_email_verification_code':
+          'Enter the verification code sent to your email',
+      'we_sent_code_to': "We've sent a verification code to ",
+      'did_not_receive_code': "Didn't receive the code?",
+      'resend_code': 'Resend Code',
+      'successs': 'Success',
+      'done_check': 'Your email has been verified successfully',
+
+      "validation.email.empty": "Enter your email",
+      "validation.email.missing_at": "Must contain @",
+      "validation.email.missing_dot": "Must contain a dot",
+      "validation.email.invalid_format": "Invalid format",
+
+      "validation.username.empty": "Enter username",
+      "validation.username.too_short": "Too short (min 3)",
+      "validation.username.too_long": "Too long (max 20)",
+      "validation.username.invalid_chars": "Only letters, numbers, _",
+
+      "validation.phone.empty": "Enter phone number",
+      "validation.phone.invalid_format": "Invalid format (8–15 digits)",
+
+      "validation.password.empty": "Enter password",
+      "validation.password.too_short": "Too short (min 8)",
+      "validation.password.too_long": "Too long (max 32)",
+      "validation.password.needs_uppercase": "Needs uppercase letter",
+      "validation.password.needs_lowercase": "Needs lowercase letter",
+      "validation.password.needs_number": "Needs a number",
+      "validation.password.only_letters_numbers": "Letters/numbers only",
+
+      "validation.confirm_password.empty": "Confirm password",
+      "validation.confirm_password.not_match": "Passwords mismatch",
+
+      "exit_title": "Exit Confirmation",
+      "exit_desc": "Are you sure you want to exit the app?",
+      "exit_yes": "Yes",
+      "exit_no": "No",
     },
   };
 }
