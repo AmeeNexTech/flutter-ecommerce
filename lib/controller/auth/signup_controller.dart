@@ -24,6 +24,8 @@ class SignupControllerImp extends SignupController {
 
   bool isPasswordHidden = true;
 
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
   @override
   signup() {
     var formdata = formstate.currentState;
@@ -35,7 +37,8 @@ class SignupControllerImp extends SignupController {
 
       // هنا تقوم بعمل لودنج تحميل حتي تتم عمليات الباك اند ثم تنتقل وبعدها تمسح
     } else {
-      print("not valid");
+      autovalidateMode = AutovalidateMode.always;
+      update();
     }
   }
 

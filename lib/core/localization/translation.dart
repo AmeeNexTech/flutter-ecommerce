@@ -69,8 +69,7 @@ class MyTranslation extends Translations {
       'go_to_login': 'سيتم إعادة توجيهك لتسجيل الدخول.',
 
       'verify_email': 'تأكيد البريد الإلكتروني',
-      'enter_email_verification_code':
-          'أدخل رمز التحقق المرسل إلى بريدك الإلكتروني',
+      'enter_email_verification_code': 'أدخل رمز التحقق',
       'we_sent_code_to': 'تم إرسال رمز التحقق إلى ',
       'did_not_receive_code': 'لم يصلك الرمز؟',
       'resend_code': 'إعادة إرسال الرمز',

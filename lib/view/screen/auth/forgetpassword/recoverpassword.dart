@@ -23,7 +23,7 @@ class RecoverPassword extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Form(
           key: controller.formstate,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
+          autovalidateMode: AutovalidateMode.disabled,
           child: Center(
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 500),

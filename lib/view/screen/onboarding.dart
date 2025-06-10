@@ -14,7 +14,9 @@ class OnBoarding extends GetView<OnBoardingControllerImp> {
     Get.find<OnBoardingControllerImp>();
 
     return Scaffold(
-      backgroundColor: AppColor.backgroundcolor,
+      backgroundColor:
+          AppColor
+              .backgroundcolor, // جرب مسحه لتاكد انه الثيم العام يعمل ولا حاجه لهذا
       body: SafeArea(
         child: OrientationBuilder(
           builder: (context, orientation) {

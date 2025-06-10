@@ -15,17 +15,19 @@ class LoginControllerImp extends LoginController {
   String? passwordText;
   bool isPasswordHidden = true;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   login() {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
       formdata.save();
-      print("valid");
+
       email.clear();
       password.clear();
     } else {
-      print("not valid");
+      autovalidateMode = AutovalidateMode.always;
+      update();
     }
   }
 
