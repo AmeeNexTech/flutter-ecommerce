@@ -3,14 +3,11 @@ import 'package:ecommerceshoporia/core/localization/changelocal.dart';
 import 'package:ecommerceshoporia/core/localization/translation.dart';
 import 'package:ecommerceshoporia/core/services/services.dart';
 import 'package:ecommerceshoporia/routes/app_pages.dart';
-import 'package:ecommerceshoporia/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await initialServices();
   runApp(const MyApp());
 }
