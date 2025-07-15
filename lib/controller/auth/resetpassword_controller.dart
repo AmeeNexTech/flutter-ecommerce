@@ -18,6 +18,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
+  @override
   resetPassword() {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {

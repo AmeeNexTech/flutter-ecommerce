@@ -1,5 +1,5 @@
 import 'package:ecommerceshoporia/controller/auth/verifycode_controller.dart';
-import 'package:ecommerceshoporia/core/constant/BackgroundContainer.dart';
+import 'package:ecommerceshoporia/core/constant/background_container.dart';
 import 'package:ecommerceshoporia/core/constant/color.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauthandback.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtextroutto.dart';

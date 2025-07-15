@@ -1,6 +1,6 @@
 import 'package:ecommerceshoporia/core/constant/routes.dart';
-import 'package:ecommerceshoporia/core/services/services.dart';
-import 'package:ecommerceshoporia/data/datasource/static/static.dart';
+import 'package:ecommerceshoporia/core/services/storage/local_storage_service.dart';
+import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -12,12 +12,12 @@ abstract class OnboardingController extends GetxController {
 class OnBoardingControllerImp extends OnboardingController {
   late PageController pageController;
   int currentPage = 0;
-  MyServices myServices = Get.find();
+  LocalStorageService localStorageService = Get.find();
 
   @override
   next() {
     if (currentPage >= onBoardingList.length - 1) {
-      myServices.sharedPreferences.setString('onBoarding', '1');
+      localStorageService.sharedPreferences.setString('onBoarding', '1');
       Get.offAllNamed(AppRoute.login);
     } else {
       currentPage++;

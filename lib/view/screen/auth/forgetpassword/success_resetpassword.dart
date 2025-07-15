@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/BackgroundContainer.dart';
+import 'package:ecommerceshoporia/core/constant/background_container.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauth.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';

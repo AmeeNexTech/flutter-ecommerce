@@ -1,6 +1,6 @@
 import 'package:ecommerceshoporia/controller/auth/recoverpassword_controller.dart';
-import 'package:ecommerceshoporia/core/constant/BackgroundContainer.dart';
-import 'package:ecommerceshoporia/core/functions/validators.dart';
+import 'package:ecommerceshoporia/core/constant/background_container.dart';
+import 'package:ecommerceshoporia/core/utils/validation_utils.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauthandback.dart';
 import 'package:ecommerceshoporia/view/widget/auth/custombuttomauth.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';

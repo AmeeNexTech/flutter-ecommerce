@@ -1,11 +1,11 @@
 import 'package:ecommerceshoporia/controller/onboarding_controller.dart';
-import 'package:ecommerceshoporia/data/datasource/static/static.dart';
+import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
-  const CustomSliderOnBoarding({Key? key}) : super(key: key);
+  const CustomSliderOnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       fit: BoxFit.contain,
                     ),
 
-                    SizedBox(height: isPortrait ? 30 : 10),
+                    SizedBox(height: isPortrait ? 26 : 10),
 
                     Flexible(
                       child: Text(
@@ -46,7 +46,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       ),
                     ),
 
-                    SizedBox(height: isPortrait ? 20 : 10),
+                    SizedBox(height: isPortrait ? 10 : 10),
 
                     Flexible(
                       child: Text(

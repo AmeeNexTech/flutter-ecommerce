@@ -5,8 +5,7 @@ class Custombuttomlang extends StatelessWidget {
   final String textbutton;
   final void Function()? onPressed;
 
-  const Custombuttomlang({Key? key, required this.textbutton, this.onPressed})
-    : super(key: key);
+  const Custombuttomlang({super.key, required this.textbutton, this.onPressed});
 
   @override
   Widget build(BuildContext context) {

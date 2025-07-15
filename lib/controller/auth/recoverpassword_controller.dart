@@ -31,7 +31,7 @@ class RecoverPasswordControllerImp extends RecoverPasswordController {
 
   @override
   goToSignIn() {
-    Get.offAllNamed(AppRoute.login);
+    Get.back();
     email.clear();
   }
 

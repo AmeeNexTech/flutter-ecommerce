@@ -1,8 +1,8 @@
 import 'package:ecommerceshoporia/controller/auth/login_controller.dart';
-import 'package:ecommerceshoporia/core/constant/BackgroundContainer.dart';
+import 'package:ecommerceshoporia/core/constant/background_container.dart';
 import 'package:ecommerceshoporia/core/constant/color.dart';
-import 'package:ecommerceshoporia/core/functions/alertexitapp.dart';
-import 'package:ecommerceshoporia/core/functions/validators.dart';
+import 'package:ecommerceshoporia/core/utils/alertexitapp.dart';
+import 'package:ecommerceshoporia/core/utils/validation_utils.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customappbarauth.dart';
 import 'package:ecommerceshoporia/view/widget/auth/custombuttomauth.dart';
 import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';

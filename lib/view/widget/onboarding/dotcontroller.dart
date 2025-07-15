@@ -1,11 +1,11 @@
 import 'package:ecommerceshoporia/controller/onboarding_controller.dart';
 import 'package:ecommerceshoporia/core/constant/color.dart';
-import 'package:ecommerceshoporia/data/datasource/static/static.dart';
+import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class CustomDotOnBoarding extends StatelessWidget {
-  const CustomDotOnBoarding({Key? key}) : super(key: key);
+  const CustomDotOnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {

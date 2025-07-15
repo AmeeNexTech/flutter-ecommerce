@@ -1,19 +1,20 @@
 import 'package:ecommerceshoporia/core/constant/routes.dart';
-import 'package:ecommerceshoporia/core/services/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:ecommerceshoporia/core/services/storage/local_storage_service.dart';
 
 class AppMiddleware extends GetMiddleware {
   @override
   int? get priority => 1;
 
-  MyServices myServices = Get.find();
+  LocalStorageService localStorageService = Get.find();
 
   @override
   RouteSettings? redirect(String? route) {
-    if (myServices.sharedPreferences.getString('onBoarding') == "1") {
+    if (localStorageService.sharedPreferences.getString('onBoarding') == "1") {
       return const RouteSettings(name: AppRoute.login);
-    } else
+    } else {
       return null;
+    }
   }
 }

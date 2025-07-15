@@ -1,7 +1,7 @@
-import 'package:ecommerceshoporia/core/constant/apptheme.dart';
+import 'package:ecommerceshoporia/core/constant/app_theme.dart';
 import 'package:ecommerceshoporia/core/localization/changelocal.dart';
 import 'package:ecommerceshoporia/core/localization/translation.dart';
-import 'package:ecommerceshoporia/core/services/services.dart';
+import 'package:ecommerceshoporia/core/services/app_services.dart';
 import 'package:ecommerceshoporia/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

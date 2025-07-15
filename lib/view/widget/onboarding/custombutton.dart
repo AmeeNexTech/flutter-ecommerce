@@ -12,7 +12,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
     Key? key,
     required this.text,
     required this.onPressed,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
