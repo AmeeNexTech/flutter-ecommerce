@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class Custombuttomlang extends StatelessWidget {
@@ -12,11 +12,11 @@ class Custombuttomlang extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        side: BorderSide(color: AppColor.primaryColor, width: 2),
+        side: const BorderSide(color: AppColor.primaryColor, width: 2),
         foregroundColor: AppColor.primaryColor,
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        backgroundColor: Colors.white.withOpacity(0.05),
+        backgroundColor: Colors.white.withAlpha((0.05 * 255).toInt()),
         elevation: 0,
       ),
       child: Row(

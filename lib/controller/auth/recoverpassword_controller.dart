@@ -1,6 +1,7 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../../core/utils/app_logger.dart';
 
 abstract class RecoverPasswordController extends GetxController {
   goToVerifyCode();
@@ -15,17 +16,17 @@ class RecoverPasswordControllerImp extends RecoverPasswordController {
 
   @override
   goToVerifyCode() {
-    var formdata = formstate.currentState;
+    final formdata = formstate.currentState;
 
     if (formdata!.validate()) {
       formdata.save();
 
-      print("Email to verify: $emailText");
+      AppLogger.i('Email to verify: $emailText');
 
       Get.toNamed(AppRoute.verifycode);
       email.clear();
     } else {
-      print("Form is not valid");
+      AppLogger.w('Form is not valid');
     }
   }
 

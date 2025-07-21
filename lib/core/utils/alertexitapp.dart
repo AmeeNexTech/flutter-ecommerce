@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
+import '../constant/color.dart';
+
 Future<bool> alertExitApp() async {
   final completer = Completer<bool>();
 
@@ -66,7 +68,7 @@ Future<bool> alertExitApp() async {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.5),
+              color: AppColor.primaryColor.withAlpha(127),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),

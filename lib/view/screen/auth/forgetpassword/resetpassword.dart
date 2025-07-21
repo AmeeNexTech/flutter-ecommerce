@@ -1,11 +1,11 @@
-import 'package:ecommerceshoporia/controller/auth/resetpassword_controller.dart';
-import 'package:ecommerceshoporia/core/constant/background_container.dart';
-import 'package:ecommerceshoporia/core/utils/validation_utils.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customappbarauthandback.dart';
-import 'package:ecommerceshoporia/view/widget/auth/custombuttomauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextformauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtexttitleauth.dart';
+import '../../../../controller/auth/resetpassword_controller.dart';
+import '../../../../core/constant/background_container.dart';
+import '../../../../core/utils/validation_utils.dart';
+import '../../../widget/auth/customappbarauthandback.dart';
+import '../../../widget/auth/custombuttomauth.dart';
+import '../../../widget/auth/customtextbodyauth.dart';
+import '../../../widget/auth/customtextformauth.dart';
+import '../../../widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,31 +14,35 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller =
+    final ResetPasswordControllerImp controller =
         Get.find<ResetPasswordControllerImp>();
 
+    final screenSize = MediaQuery.of(context).size;
+    final isLandscape = screenSize.width > screenSize.height;
+    final isTablet = screenSize.width > 600;
+
     return Scaffold(
-      appBar: Customappbarauthandback(text: "reset_password".tr),
+      appBar: Customappbarauthandback(text: 'reset_password'.tr),
       body: BackgroundContainer(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(isLandscape ? 16 : 20),
         child: Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 500),
+            constraints: BoxConstraints(maxWidth: isTablet ? 600 : 500),
             child: Form(
               key: controller.formstate,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: ListView(
                 children: [
-                  const SizedBox(height: 40),
+                  SizedBox(height: isLandscape ? 20 : 40),
                   Customtexttitleauth(text: 'reset_password_title'.tr),
-                  const SizedBox(height: 8),
-                  Customtextbodyauth(text: "reset_password_instruction".tr),
-                  const SizedBox(height: 30),
+                  SizedBox(height: isLandscape ? 6 : 8),
+                  Customtextbodyauth(text: 'reset_password_instruction'.tr),
+                  SizedBox(height: isLandscape ? 20 : 30),
                   GetBuilder<ResetPasswordControllerImp>(
                     builder:
                         (controller) => Customtextformauth(
                           valid: (val) => validatePassword(val!),
-                          labeltext: "enter_password".tr,
+                          labeltext: 'enter_password'.tr,
                           iconData:
                               controller.isPasswordHidden
                                   ? Icons.visibility_off_outlined
@@ -53,7 +57,7 @@ class ResetPassword extends StatelessWidget {
                               (val) => controller.passwordText = val!.trim(),
                         ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: isLandscape ? 16 : 20),
                   GetBuilder<ResetPasswordControllerImp>(
                     builder:
                         (controller) => Customtextformauth(
@@ -62,7 +66,7 @@ class ResetPassword extends StatelessWidget {
                                 val!,
                                 controller.password.text,
                               ),
-                          labeltext: "confirm_password".tr,
+                          labeltext: 'confirm_password'.tr,
                           iconData:
                               controller.isconfirmPasswordHidden
                                   ? Icons.visibility_off_outlined
@@ -77,7 +81,7 @@ class ResetPassword extends StatelessWidget {
                               (val) => controller.repasswordText = val!.trim(),
                         ),
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: isLandscape ? 30 : 40),
                   Custombuttomauth(
                     text: 'save'.tr,
                     onPressed: () => controller.resetPassword(),

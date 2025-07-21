@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +19,7 @@ class LoginControllerImp extends LoginController {
 
   @override
   login() {
-    var formdata = formstate.currentState;
+    final formdata = formstate.currentState;
     if (formdata!.validate()) {
       formdata.save();
 

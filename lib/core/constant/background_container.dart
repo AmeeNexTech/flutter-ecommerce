@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import 'color.dart';
 import 'package:flutter/material.dart';
 
 class BackgroundContainer extends StatelessWidget {

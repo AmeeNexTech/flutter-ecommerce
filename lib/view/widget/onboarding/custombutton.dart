@@ -1,18 +1,18 @@
-import 'dart:ui';
-
-import 'package:ecommerceshoporia/controller/onboarding_controller.dart';
+import '../../../controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+
+import '../../../core/constant/color.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
   final String text;
   final VoidCallback? onPressed;
 
   const CustomButtonOnBoarding({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(0.4),
+            color: AppColor.primaryColor.withAlpha((0.4 * 255).toInt()),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),

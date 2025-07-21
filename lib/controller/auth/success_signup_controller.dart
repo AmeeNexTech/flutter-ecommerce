@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +19,7 @@ class SuccessSignupController extends GetxController {
 
     animationController.forward();
 
-    Future.delayed(const Duration(seconds: 3), goToLogin);
+    Future.delayed(const Duration(seconds: 4), goToLogin);
   }
 
   void goToLogin() {

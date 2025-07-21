@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import 'color.dart';
 
 ThemeData appTheme(String? languageCode) {
   return ThemeData(
-    fontFamily: languageCode == "ar" ? "Cairo" : "Poppins",
-    textTheme: TextTheme(
-      headlineLarge: const TextStyle(
+    fontFamily: languageCode == 'ar' ? 'Cairo' : 'Poppins',
+    textTheme: const TextTheme(
+      headlineLarge: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w800,
         color: Colors.black87,

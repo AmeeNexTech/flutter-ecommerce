@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController {

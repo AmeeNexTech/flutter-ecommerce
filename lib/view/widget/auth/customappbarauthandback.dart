@@ -1,7 +1,8 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
-class Customappbarauthandback extends StatelessWidget implements PreferredSizeWidget {
+class Customappbarauthandback extends StatelessWidget
+    implements PreferredSizeWidget {
   final String text;
   const Customappbarauthandback({super.key, required this.text});
   @override

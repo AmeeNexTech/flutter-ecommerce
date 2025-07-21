@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class Customtextformauth extends StatelessWidget {
@@ -46,25 +46,28 @@ class Customtextformauth extends StatelessWidget {
         ),
         labelText: labeltext,
         labelStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: AppColor.grey.withOpacity(0.8),
+          color: AppColor.grey.withAlpha(204),
           fontSize: 16,
           height: 1.3,
           fontWeight: FontWeight.w500,
         ),
         suffixIcon: IconButton(
           onPressed: suffixIconOnTap,
-          icon: Icon(iconData, color: AppColor.grey.withOpacity(0.7), size: 22),
+          icon: Icon(iconData, color: AppColor.grey.withAlpha(178), size: 22),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(
-            color: AppColor.grey.withOpacity(0.5),
+            color: AppColor.grey.withAlpha(127),
             width: 1.2,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColor.primaryColor, width: 2.0),
+          borderSide: const BorderSide(
+            color: AppColor.primaryColor,
+            width: 2.0,
+          ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),

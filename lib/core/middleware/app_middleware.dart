@@ -1,7 +1,7 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../constant/routes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:ecommerceshoporia/core/services/storage/local_storage_service.dart';
+import '../services/storage/local_storage_service.dart';
 
 class AppMiddleware extends GetMiddleware {
   @override
@@ -11,7 +11,7 @@ class AppMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    if (localStorageService.sharedPreferences.getString('onBoarding') == "1") {
+    if (localStorageService.sharedPreferences.getString('onBoarding') == '1') {
       return const RouteSettings(name: AppRoute.login);
     } else {
       return null;

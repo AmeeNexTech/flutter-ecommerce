@@ -1,15 +1,15 @@
-import 'package:ecommerceshoporia/controller/auth/login_controller.dart';
-import 'package:ecommerceshoporia/core/constant/background_container.dart';
-import 'package:ecommerceshoporia/core/constant/color.dart';
-import 'package:ecommerceshoporia/core/utils/alertexitapp.dart';
-import 'package:ecommerceshoporia/core/utils/validation_utils.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customappbarauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/custombuttomauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextformauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextroutto.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtexttitleauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/logoauth.dart';
+import '../../../controller/auth/login_controller.dart';
+import '../../../core/constant/background_container.dart';
+import '../../../core/constant/color.dart';
+import '../../../core/utils/alertexitapp.dart';
+import '../../../core/utils/validation_utils.dart';
+import '../../widget/auth/customappbarauth.dart';
+import '../../widget/auth/custombuttomauth.dart';
+import '../../widget/auth/customtextbodyauth.dart';
+import '../../widget/auth/customtextformauth.dart';
+import '../../widget/auth/customtextroutto.dart';
+import '../../widget/auth/customtexttitleauth.dart';
+import '../../widget/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,15 +30,22 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        bool exit = await alertExitApp();
-        return exit;
+    final screenSize = MediaQuery.of(context).size;
+    final isLandscape = screenSize.width > screenSize.height;
+    final isTablet = screenSize.width > 600;
+
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (bool didPop, Object? result) async {
+        if (!didPop) {
+          final bool exit = await alertExitApp();
+          if (exit) Get.back();
+        }
       },
       child: Scaffold(
         appBar: Customappbarauth(text: 'sign1'.tr),
         body: BackgroundContainer(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(isLandscape ? 16 : 20),
           child: GetBuilder<LoginControllerImp>(
             builder:
                 (controller) => Form(
@@ -46,34 +53,36 @@ class _LoginState extends State<Login> {
                   autovalidateMode: controller.autovalidateMode,
                   child: Center(
                     child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 500),
+                      constraints: BoxConstraints(
+                        maxWidth: isTablet ? 600 : 500,
+                      ),
                       child: ListView(
                         children: [
-                          LogoAuth(),
+                          SizedBox(height: isLandscape ? 20 : 40),
+                          const LogoAuth(),
                           Customtexttitleauth(text: 'sign2'.tr),
-                          const SizedBox(height: 10),
+                          SizedBox(height: isLandscape ? 8 : 10),
                           Customtextbodyauth(text: 'sign3'.tr),
-                          const SizedBox(height: 50),
+                          SizedBox(height: isLandscape ? 30 : 50),
                           Customtextformauth(
                             valid: (val) {
                               return validateEmail(val!);
                             },
-                            labeltext: "sign4".tr,
+                            labeltext: 'sign4'.tr,
                             iconData: Icons.email_outlined,
                             mycontroller: controller.email,
                             keyboardType: TextInputType.emailAddress,
                             onSaved:
                                 (val) => controller.emailText = val!.trim(),
                           ),
-                          const SizedBox(height: 20),
+                          SizedBox(height: isLandscape ? 16 : 20),
                           GetBuilder<LoginControllerImp>(
-                            // الاولاني الي فوق controllerوتستخدم  GetBuilder جرب تشيل
                             builder:
                                 (controller) => Customtextformauth(
                                   valid: (val) {
                                     return validatePassword(val!);
                                   },
-                                  labeltext: "sign5".tr,
+                                  labeltext: 'sign5'.tr,
                                   iconData:
                                       controller.isPasswordHidden
                                           ? Icons.visibility_off_outlined
@@ -92,8 +101,8 @@ class _LoginState extends State<Login> {
                                 controller.goToRecoverPassword();
                               },
                               child: Text(
-                                "sign6".tr,
-                                style: TextStyle(
+                                'sign6'.tr,
+                                style: const TextStyle(
                                   color: AppColor.grey,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400,
@@ -101,14 +110,14 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          SizedBox(height: isLandscape ? 16 : 20),
                           Custombuttomauth(
                             text: 'sign7'.tr,
                             onPressed: () {
                               controller.login();
                             },
                           ),
-                          SizedBox(height: 30),
+                          SizedBox(height: isLandscape ? 20 : 30),
                           CustomTextroutto(
                             text: 'sign8'.tr,
                             textButton: 'sign9'.tr,

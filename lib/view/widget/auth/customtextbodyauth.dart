@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class Customtextbodyauth extends StatelessWidget {

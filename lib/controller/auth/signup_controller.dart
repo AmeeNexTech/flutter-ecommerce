@@ -1,55 +1,71 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
+import '../../core/utils/app_logger.dart';
+import '../../core/utils/snackbar_util.dart';
+import '../../data/repository/auth/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class SignupController extends GetxController {
-  signup();
-  goToLogin();
+  void signup();
+  void goToLogin();
+  void showPassword();
 }
 
 class SignupControllerImp extends SignupController {
-  TextEditingController username = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController confirmpassword = TextEditingController();
+  final UserRepository _userRepository = Get.find<UserRepository>();
 
-  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  // Controllers
+  final username = TextEditingController();
+  final email = TextEditingController();
+  final phone = TextEditingController();
+  final password = TextEditingController();
 
-  String? usernameText;
-  String? emailText;
-  String? phoneText;
-  String? passwordText;
-  String? confirmpasswordText;
+  final formKey = GlobalKey<FormState>();
 
+  final isLoading = false.obs;
   bool isPasswordHidden = true;
-
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
-  signup() {
-    var formdata = formstate.currentState;
-
-    if (formdata!.validate()) {
-      formdata.save();
-
-      Get.toNamed(AppRoute.verifyemail);
-
-      // هنا تقوم بعمل لودنج تحميل حتي تتم عمليات الباك اند ثم تنتقل وبعدها تمسح
-    } else {
+  void signup() async {
+    final form = formKey.currentState;
+    if (form == null || !form.validate()) {
       autovalidateMode = AutovalidateMode.always;
       update();
+      return;
+    }
+
+    form.save();
+    isLoading.value = true;
+
+    try {
+      final response = await _userRepository.register(
+        name: username.text.trim(),
+        email: email.text.trim(),
+        phoneNumber: phone.text.trim(),
+        password: password.text,
+      );
+
+      showSuccessSnackbar(title: 'success', message: response.message);
+
+      Get.toNamed(AppRoute.verifyemail, arguments: {'email': email.text});
+    } catch (e) {
+      showErrorSnackbar(title: 'error', message: e.toString());
+      AppLogger.e('Signup error: $e');
+    } finally {
+      isLoading.value = false;
     }
   }
 
-  showPassword() {
-    isPasswordHidden = !isPasswordHidden;
-    update();
+  @override
+  void goToLogin() {
+    Get.offNamed(AppRoute.login);
   }
 
   @override
-  goToLogin() {
-    Get.offNamed(AppRoute.login);
+  void showPassword() {
+    isPasswordHidden = !isPasswordHidden;
+    update();
   }
 
   @override
@@ -58,7 +74,6 @@ class SignupControllerImp extends SignupController {
     email.dispose();
     phone.dispose();
     password.dispose();
-    confirmpassword.dispose();
     super.onClose();
   }
 }

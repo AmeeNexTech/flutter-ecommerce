@@ -1,7 +1,7 @@
-import 'package:ecommerceshoporia/controller/auth/success_signup_controller.dart';
-import 'package:ecommerceshoporia/core/constant/background_container.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customappbarauth.dart';
-import 'package:ecommerceshoporia/view/widget/auth/customtextbodyauth.dart';
+import '../../../controller/auth/success_signup_controller.dart';
+import '../../../core/constant/background_container.dart';
+import '../../widget/auth/customappbarauth.dart';
+import '../../widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,13 +25,17 @@ class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final isLandscape = screenSize.width > screenSize.height;
+    final isTablet = screenSize.width > 600;
+
     return Scaffold(
-      appBar: Customappbarauth(text: "successs".tr),
+      appBar: Customappbarauth(text: 'successs'.tr),
       body: BackgroundContainer(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(isLandscape ? 16 : 20),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 500),
+            constraints: BoxConstraints(maxWidth: isTablet ? 600 : 500),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -39,24 +43,24 @@ class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
                   scale: controller.scaleAnimation,
                   child: Icon(
                     Icons.check_circle,
-                    size: 120,
+                    size: isLandscape ? 100 : 120,
                     color: Colors.blue.shade600,
                     shadows: [
                       Shadow(color: Colors.green.shade200, blurRadius: 15),
                     ],
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: isLandscape ? 20 : 30),
                 Text(
                   'done_check'.tr,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22,
+                  style: TextStyle(
+                    fontSize: isLandscape ? 20 : 22,
                     fontWeight: FontWeight.w600,
                     color: Colors.black87,
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: isLandscape ? 8 : 10),
                 Customtextbodyauth(text: 'go_to_login'.tr),
               ],
             ),

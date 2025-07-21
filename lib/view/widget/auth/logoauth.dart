@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/imageasset.dart';
+import '../../../core/constant/imageasset.dart';
 import 'package:flutter/cupertino.dart';
 
 class LogoAuth extends StatelessWidget {

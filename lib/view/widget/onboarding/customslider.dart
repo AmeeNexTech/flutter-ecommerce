@@ -1,8 +1,7 @@
-import 'package:ecommerceshoporia/controller/onboarding_controller.dart';
-import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
+import '../../../controller/onboarding_controller.dart';
+import '../../../core/constant/onboarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
   const CustomSliderOnBoarding({super.key});

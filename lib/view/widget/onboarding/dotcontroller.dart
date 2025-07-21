@@ -1,6 +1,6 @@
-import 'package:ecommerceshoporia/controller/onboarding_controller.dart';
-import 'package:ecommerceshoporia/core/constant/color.dart';
-import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
+import '../../../controller/onboarding_controller.dart';
+import '../../../core/constant/color.dart';
+import '../../../core/constant/onboarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -25,14 +25,22 @@ class CustomDotOnBoarding extends StatelessWidget {
                       controller.currentPage == index
                           ? LinearGradient(
                             colors: [
-                              AppColor.primaryColor.withOpacity(0.9),
-                              AppColor.primaryColor.withOpacity(0.6),
+                              AppColor.primaryColor.withAlpha(
+                                (0.9 * 255).toInt(),
+                              ),
+                              AppColor.primaryColor.withAlpha(
+                                (0.6 * 255).toInt(),
+                              ),
                             ],
                           )
                           : LinearGradient(
                             colors: [
-                              AppColor.primaryColor.withOpacity(0.3),
-                              AppColor.primaryColor.withOpacity(0.1),
+                              AppColor.primaryColor.withAlpha(
+                                (0.3 * 255).toInt(),
+                              ),
+                              AppColor.primaryColor.withAlpha(
+                                (0.1 * 255).toInt(),
+                              ),
                             ],
                           ),
                   borderRadius: BorderRadius.circular(50),
@@ -40,10 +48,12 @@ class CustomDotOnBoarding extends StatelessWidget {
                       controller.currentPage == index
                           ? [
                             BoxShadow(
-                              color: AppColor.primaryColor.withOpacity(0.4),
+                              color: AppColor.primaryColor.withAlpha(
+                                (0.4 * 255).toInt(),
+                              ),
                               blurRadius: 6,
                               spreadRadius: 1,
-                              offset: Offset(0, 2),
+                              offset: const Offset(0, 2),
                             ),
                           ]
                           : [],

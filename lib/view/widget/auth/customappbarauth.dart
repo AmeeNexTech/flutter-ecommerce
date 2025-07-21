@@ -1,4 +1,4 @@
-import 'package:ecommerceshoporia/core/constant/color.dart';
+import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class Customappbarauth extends StatelessWidget implements PreferredSizeWidget {

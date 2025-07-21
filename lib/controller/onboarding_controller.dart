@@ -1,6 +1,6 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
-import 'package:ecommerceshoporia/core/services/storage/local_storage_service.dart';
-import 'package:ecommerceshoporia/core/constant/onboarding_data.dart';
+import '../core/constant/routes.dart';
+import '../core/services/storage/local_storage_service.dart';
+import '../core/constant/onboarding_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class OnBoardingControllerImp extends OnboardingController {
       currentPage++;
       pageController.animateToPage(
         currentPage,
-        duration: Duration(milliseconds: 900),
+        duration: const Duration(milliseconds: 900),
         curve: Curves.easeInOut,
       );
     }

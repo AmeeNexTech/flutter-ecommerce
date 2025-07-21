@@ -1,6 +1,8 @@
-import 'package:ecommerceshoporia/core/constant/routes.dart';
+import '../../core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../core/utils/app_logger.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetPassword();
@@ -20,7 +22,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   resetPassword() {
-    var formdata = formstate.currentState;
+    final formdata = formstate.currentState;
     if (formdata!.validate()) {
       formdata.save();
 
@@ -29,7 +31,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
       password.clear();
       repassword.clear();
     } else {
-      print("Form is not valid");
+      AppLogger.w('Form is not valid');
     }
   }
 
