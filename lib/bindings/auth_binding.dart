@@ -1,10 +1,10 @@
 import '../controller/auth/login_controller.dart';
-import '../controller/auth/recoverpassword_controller.dart';
-import '../controller/auth/resetpassword_controller.dart';
+import '../controller/auth/forgetpassword/recoverpassword_controller.dart';
+import '../controller/auth/forgetpassword/resetpassword_controller.dart';
 import '../controller/auth/signup_controller.dart';
-import '../controller/auth/success_reset_password_controller.dart';
+import '../controller/auth/forgetpassword/success_reset_password_controller.dart';
 import '../controller/auth/success_signup_controller.dart';
-import '../controller/auth/verifycode_controller.dart';
+import '../controller/auth/forgetpassword/verifycode_controller.dart';
 import '../controller/auth/verifyemail_controller.dart';
 import 'package:get/get.dart';
 

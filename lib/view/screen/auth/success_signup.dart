@@ -1,5 +1,8 @@
+import 'package:lottie/lottie.dart';
+
 import '../../../controller/auth/success_signup_controller.dart';
 import '../../../core/constant/background_container.dart';
+import '../../../core/constant/imageasset.dart';
 import '../../widget/auth/customappbarauth.dart';
 import '../../widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
@@ -39,15 +42,18 @@ class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ScaleTransition(
-                  scale: controller.scaleAnimation,
-                  child: Icon(
-                    Icons.check_circle,
-                    size: isLandscape ? 100 : 120,
-                    color: Colors.blue.shade600,
-                    shadows: [
-                      Shadow(color: Colors.green.shade200, blurRadius: 15),
-                    ],
+                SizedBox(
+                  height: isLandscape ? 100 : 160,
+                  child: Lottie.asset(
+                    AppImageasset.logoSuccessAnimation,
+                    repeat: false,
+                    onLoaded: (composition) {
+                      controller.startAnimation(composition.duration);
+                      Future.delayed(
+                        const Duration(seconds: 3),
+                        controller.goToHome,
+                      );
+                    },
                   ),
                 ),
                 SizedBox(height: isLandscape ? 20 : 30),
@@ -61,7 +67,7 @@ class _SuccessVerifyEmailState extends State<SuccessVerifyEmail>
                   ),
                 ),
                 SizedBox(height: isLandscape ? 8 : 10),
-                Customtextbodyauth(text: 'go_to_login'.tr),
+                Customtextbodyauth(text: 'go_to_home'.tr),
               ],
             ),
           ),

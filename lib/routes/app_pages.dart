@@ -1,6 +1,5 @@
 import '../bindings/app_binding.dart';
 import '../bindings/auth_binding.dart';
-import '../core/middleware/app_middleware.dart';
 import 'package:get/get.dart';
 import '../core/constant/routes.dart';
 
@@ -12,17 +11,21 @@ import '../view/screen/auth/forgetpassword/resetpassword.dart';
 import '../view/screen/auth/forgetpassword/success_resetpassword.dart';
 import '../view/screen/auth/verifyemail.dart';
 import '../view/screen/auth/success_signup.dart';
+import '../view/screen/home.dart';
 import '../view/screen/onboarding.dart';
 import '../view/screen/language.dart';
+import '../view/screen/splash.dart';
 
 class AppPages {
   static final pages = [
+    // Splash Screen
+    GetPage(name: '/', page: () => const SplashScreen(), binding: AppBinding()),
+
     // الصفحات العامة
     GetPage(
-      name: '/',
+      name: AppRoute.language,
       page: () => const Language(),
       binding: AppBinding(),
-      middlewares: [AppMiddleware()],
     ),
 
     GetPage(
@@ -78,6 +81,12 @@ class AppPages {
       name: AppRoute.successverifyemail,
       page: () => const SuccessVerifyEmail(),
       binding: AuthBinding(),
+    ),
+
+    GetPage(
+      name: AppRoute.home,
+      page: () => const Home(),
+      binding: AppBinding(),
     ),
   ];
 }

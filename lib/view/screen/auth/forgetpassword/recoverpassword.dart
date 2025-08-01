@@ -1,4 +1,4 @@
-import '../../../../controller/auth/recoverpassword_controller.dart';
+import '../../../../controller/auth/forgetpassword/recoverpassword_controller.dart';
 import '../../../../core/constant/background_container.dart';
 import '../../../../core/utils/validation_utils.dart';
 import '../../../widget/auth/customappbarauthandback.dart';

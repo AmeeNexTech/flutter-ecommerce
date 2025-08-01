@@ -66,7 +66,7 @@ class MyTranslation extends Translations {
 
       'success': 'تم بنجاح',
       'password_reset_successful': 'تمت إعادة تعيين كلمة المرور بنجاح',
-      'go_to_login': 'سيتم إعادة توجيهك لتسجيل الدخول.',
+      'go_to_home': 'سيتم إعادة توجيهك للصفحة الرئيسية.',
 
       'verify_email': 'تأكيد البريد الإلكتروني',
       'enter_email_verification_code': 'أدخل رمز التحقق',
@@ -170,13 +170,13 @@ class MyTranslation extends Translations {
 
       'success': 'Successfully completed',
       'password_reset_successful': 'Password Reset Successful',
-      'go_to_login': 'You will be redirected to log in.',
+      'go_to_home': 'You will be redirected to the home page.',
 
       'verify_email': 'Verify Email',
       'enter_email_verification_code':
           'Enter the verification code sent to your email',
-      'we_sent_code_to': "We've sent a verification code to ",
-      'did_not_receive_code': "Didn't receive the code?",
+      'we_sent_code_to': 'We\'ve sent a verification code to ',
+      'did_not_receive_code': 'Didn\'t receive the code?',
       'resend_code': 'Resend Code',
       'successs': 'Success',
       'done_check': 'Your email has been verified successfully',

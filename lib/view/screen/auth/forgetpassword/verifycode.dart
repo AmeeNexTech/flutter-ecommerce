@@ -1,4 +1,4 @@
-import '../../../../controller/auth/verifycode_controller.dart';
+import '../../../../controller/auth/forgetpassword/verifycode_controller.dart';
 import '../../../../core/constant/background_container.dart';
 import '../../../../core/constant/color.dart';
 import '../../../widget/auth/customappbarauthandback.dart';

@@ -1,5 +1,6 @@
+import '../controller/home_controller.dart';
 import '../controller/onboarding_controller.dart';
-import '../core/localization/changelocal.dart';
+import '../controller/splash_controller.dart';
 import 'package:get/get.dart';
 
 class AppBinding extends Bindings {
@@ -7,6 +8,7 @@ class AppBinding extends Bindings {
   void dependencies() {
     // تسجيل Controllers العامة
     Get.lazyPut<OnBoardingControllerImp>(() => OnBoardingControllerImp());
-    Get.lazyPut<LocaleController>(() => LocaleController());
+    Get.lazyPut<HomeControllerImp>(() => HomeControllerImp());
+    Get.lazyPut<SplashController>(() => SplashController());
   }
 }

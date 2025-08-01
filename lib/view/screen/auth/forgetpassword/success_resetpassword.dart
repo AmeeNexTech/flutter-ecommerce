@@ -3,7 +3,7 @@ import '../../../widget/auth/customappbarauth.dart';
 import '../../../widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/auth/success_reset_password_controller.dart';
+import '../../../../controller/auth/forgetpassword/success_reset_password_controller.dart';
 
 class SuccessResetPassword extends StatefulWidget {
   const SuccessResetPassword({super.key});

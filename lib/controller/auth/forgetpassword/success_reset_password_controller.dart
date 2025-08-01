@@ -1,4 +1,4 @@
-import '../../core/constant/routes.dart';
+import '../../../core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

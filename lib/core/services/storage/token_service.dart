@@ -35,7 +35,11 @@ class TokenService extends GetxService {
   Future<Map<String, dynamic>?> getUser() async {
     final jsonString = await _storage.read(key: _userKey);
     if (jsonString == null) return null;
-    return jsonDecode(jsonString);
+    try {
+      return jsonDecode(jsonString);
+    } catch (e) {
+      return null;
+    }
   }
 
   // حذف التوكن (تسجيل خروج)
