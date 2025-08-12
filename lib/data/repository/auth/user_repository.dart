@@ -16,6 +16,11 @@ abstract class IUserRepository {
   });
 
   Future<RegisterResponse> resendOtp({required String email});
+
+  Future<LoginResponse> login({
+    required String email,
+    required String password,
+  });
 }
 
 class UserRepository implements IUserRepository {
@@ -48,5 +53,13 @@ class UserRepository implements IUserRepository {
   @override
   Future<RegisterResponse> resendOtp({required String email}) async {
     return await _remoteDataSource.resendOtp(email: email);
+  }
+
+  @override
+  Future<LoginResponse> login({
+    required String email,
+    required String password,
+  }) async {
+    return await _remoteDataSource.login(email: email, password: password);
   }
 }

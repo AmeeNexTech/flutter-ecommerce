@@ -104,20 +104,21 @@ class SignUp extends StatelessWidget {
                                 (val) => controller.password.text = val!.trim(),
                           ),
                           SizedBox(height: isLandscape ? 30 : 40),
-                          Obx(
-                            () => Custombuttomauth(
+                          Obx(() {
+                            final loading = controller.isLoading.value;
+                            return Custombuttomauth(
                               text: 'signUp3'.tr,
                               onPressed:
-                                  controller.isLoading.value
+                                  loading
                                       ? null
                                       : () {
                                         AppLogger.i('Sign Up button pressed');
                                         controller.signup();
                                       },
-                              isLoading: controller.isLoading.value,
+                              isLoading: loading,
                               loadingText: 'signUp3'.tr,
-                            ),
-                          ),
+                            );
+                          }),
 
                           SizedBox(height: isLandscape ? 20 : 30),
                           CustomTextroutto(

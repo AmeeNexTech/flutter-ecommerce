@@ -2,6 +2,7 @@ import '../../../controller/auth/login_controller.dart';
 import '../../../core/constant/background_container.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/utils/alertexitapp.dart';
+import '../../../core/utils/app_logger.dart';
 import '../../../core/utils/validation_utils.dart';
 import '../../widget/auth/customappbarauth.dart';
 import '../../widget/auth/custombuttomauth.dart';
@@ -111,12 +112,22 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           SizedBox(height: isLandscape ? 16 : 20),
-                          Custombuttomauth(
-                            text: 'sign7'.tr,
-                            onPressed: () {
-                              controller.login();
-                            },
-                          ),
+                          Obx(() {
+                            final loading = controller.isLoading.value;
+                            return Custombuttomauth(
+                              text: 'sign7'.tr,
+                              onPressed:
+                                  loading
+                                      ? null
+                                      : () {
+                                        AppLogger.i('Login button pressed');
+                                        controller.login();
+                                      },
+                              isLoading: loading,
+                              loadingText: 'sign7'.tr,
+                            );
+                          }),
+
                           SizedBox(height: isLandscape ? 20 : 30),
                           CustomTextroutto(
                             text: 'sign8'.tr,

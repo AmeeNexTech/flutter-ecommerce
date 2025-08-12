@@ -38,8 +38,11 @@ class SplashScreen extends StatelessWidget {
             ),
             const SizedBox(height: 14),
             // Loading Indicator
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(AppColor.primaryColor),
+            Lottie.asset(
+              AppImageasset.loading,
+              width: 80,
+              height: 80,
+              fit: BoxFit.contain,
             ),
           ],
         ),

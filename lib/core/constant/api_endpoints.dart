@@ -1,5 +1,10 @@
 class ApiEndpoints {
-  static const String baseUrl = 'http://10.0.2.2:8000';
+  // For Emulator (Android Studio)
+  // static const String baseUrl = 'http://10.0.2.2:8000';
+
+  // For Real Device - Your computer's Wi-Fi IP address
+  static const String baseUrl = 'http://172.16.45.38:8000';
+
   // Auth endpoints
   static const String login = '/api/auth/login';
   static const String register = '/api/auth/register';

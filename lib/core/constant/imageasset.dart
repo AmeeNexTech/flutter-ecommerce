@@ -9,4 +9,5 @@ class AppImageasset {
   static const String rootlottie = 'assets/lottie';
   static const String iconSplashAnimation = '$rootlottie/IconSplash.json';
   static const String logoSuccessAnimation = '$rootlottie/LogoSuccess.json';
+  static const String loading = '$rootlottie/Loading.json';
 }

@@ -19,6 +19,11 @@ abstract class IUserRemoteDataSource {
   });
 
   Future<RegisterResponse> resendOtp({required String email});
+
+  Future<LoginResponse> login({
+    required String email,
+    required String password,
+  });
 }
 
 class UserRemoteDataSource implements IUserRemoteDataSource {
@@ -71,6 +76,22 @@ class UserRemoteDataSource implements IUserRemoteDataSource {
         data: {'email': email},
       );
       return RegisterResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<LoginResponse> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.login,
+        data: {'email': email, 'password': password},
+      );
+      return LoginResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw ApiErrorHandler.handleError(e);
     }
