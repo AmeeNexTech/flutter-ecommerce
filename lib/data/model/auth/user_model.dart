@@ -126,3 +126,37 @@ class LoginData {
       _$LoginDataFromJson(json);
   Map<String, dynamic> toJson() => _$LoginDataToJson(this);
 }
+
+@JsonSerializable()
+class LogoutResponse {
+  final String status;
+  final String message;
+  final String timestamp;
+
+  LogoutResponse({
+    required this.status,
+    required this.message,
+    required this.timestamp,
+  });
+
+  factory LogoutResponse.fromJson(Map<String, dynamic> json) =>
+      _$LogoutResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$LogoutResponseToJson(this);
+}
+
+@JsonSerializable()
+class DeleteAccountResponse {
+  final String status;
+  final String message;
+  final String timestamp;
+
+  DeleteAccountResponse({
+    required this.status,
+    required this.message,
+    required this.timestamp,
+  });
+
+  factory DeleteAccountResponse.fromJson(Map<String, dynamic> json) =>
+      _$DeleteAccountResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$DeleteAccountResponseToJson(this);
+}

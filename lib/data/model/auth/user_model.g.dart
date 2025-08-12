@@ -103,3 +103,33 @@ Map<String, dynamic> _$LoginDataToJson(LoginData instance) => <String, dynamic>{
   'user': instance.user,
   'token': instance.token,
 };
+
+LogoutResponse _$LogoutResponseFromJson(Map<String, dynamic> json) =>
+    LogoutResponse(
+      status: json['status'] as String,
+      message: json['message'] as String,
+      timestamp: json['timestamp'] as String,
+    );
+
+Map<String, dynamic> _$LogoutResponseToJson(LogoutResponse instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'message': instance.message,
+      'timestamp': instance.timestamp,
+    };
+
+DeleteAccountResponse _$DeleteAccountResponseFromJson(
+  Map<String, dynamic> json,
+) => DeleteAccountResponse(
+  status: json['status'] as String,
+  message: json['message'] as String,
+  timestamp: json['timestamp'] as String,
+);
+
+Map<String, dynamic> _$DeleteAccountResponseToJson(
+  DeleteAccountResponse instance,
+) => <String, dynamic>{
+  'status': instance.status,
+  'message': instance.message,
+  'timestamp': instance.timestamp,
+};

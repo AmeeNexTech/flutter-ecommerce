@@ -21,6 +21,10 @@ abstract class IUserRepository {
     required String email,
     required String password,
   });
+
+  Future<LogoutResponse> logout();
+
+  Future<DeleteAccountResponse> deleteAccount({required String password});
 }
 
 class UserRepository implements IUserRepository {
@@ -61,5 +65,17 @@ class UserRepository implements IUserRepository {
     required String password,
   }) async {
     return await _remoteDataSource.login(email: email, password: password);
+  }
+
+  @override
+  Future<LogoutResponse> logout() async {
+    return await _remoteDataSource.logout();
+  }
+
+  @override
+  Future<DeleteAccountResponse> deleteAccount({
+    required String password,
+  }) async {
+    return await _remoteDataSource.deleteAccount(password: password);
   }
 }

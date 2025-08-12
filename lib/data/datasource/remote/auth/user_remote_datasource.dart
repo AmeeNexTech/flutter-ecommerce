@@ -24,6 +24,10 @@ abstract class IUserRemoteDataSource {
     required String email,
     required String password,
   });
+
+  Future<LogoutResponse> logout();
+
+  Future<DeleteAccountResponse> deleteAccount({required String password});
 }
 
 class UserRemoteDataSource implements IUserRemoteDataSource {
@@ -92,6 +96,31 @@ class UserRemoteDataSource implements IUserRemoteDataSource {
         data: {'email': email, 'password': password},
       );
       return LoginResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<LogoutResponse> logout() async {
+    try {
+      final response = await _dioClient.dio.post(ApiEndpoints.logout);
+      return LogoutResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<DeleteAccountResponse> deleteAccount({
+    required String password,
+  }) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.deleteAccount,
+        data: {'password': password},
+      );
+      return DeleteAccountResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw ApiErrorHandler.handleError(e);
     }
