@@ -4,27 +4,23 @@ import 'package:get/get.dart';
 
 class SuccessResetPasswordController extends GetxController {
   late AnimationController animationController;
-  late Animation<double> scaleAnimation;
 
-  void init(TickerProvider vsync) {
-    animationController = AnimationController(
-      vsync: vsync,
-      duration: const Duration(milliseconds: 700),
-    );
+  void init(TickerProvider ticker) {
+    animationController = AnimationController(vsync: ticker);
+  }
 
-    scaleAnimation = CurvedAnimation(
-      parent: animationController,
-      curve: Curves.elasticOut,
-    );
-
+  void startAnimation(Duration duration) {
+    animationController.duration = duration;
     animationController.forward();
-
-    Future.delayed(const Duration(seconds: 3), goToLogin);
   }
 
-  void goToLogin() {
-    Get.offAllNamed(AppRoute.login);
+  void goToHome() {
+    Get.offAllNamed(AppRoute.home);
   }
+
+  // void goToLogin() {
+  //   Get.offAllNamed(AppRoute.login);
+  // }
 
   @override
   void onClose() {

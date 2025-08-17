@@ -23,7 +23,7 @@ class SplashController extends GetxController {
 
   void _determineNextRoute() async {
     try {
-      // التحقق من Onboarding
+      // Onboarding التحقق من
       final hasSeenOnBoarding =
           localStorageService.sharedPreferences.getBool('onboardingKey') ??
           false;
@@ -39,7 +39,7 @@ class SplashController extends GetxController {
         Get.offAllNamed(AppRoute.login);
       }
     } catch (e) {
-      // في حالة حدوث خطأ، اذهب لصفحة اللغة
+      // في حالة حدوث خطأ، اذهب لصفحة تسجيل الدخول
       Get.offAllNamed(AppRoute.login);
     }
   }

@@ -20,11 +20,9 @@ class RecoverPasswordControllerImp extends RecoverPasswordController {
 
     if (formdata!.validate()) {
       formdata.save();
+      Get.toNamed(AppRoute.verifycode, arguments: {'email': email.text});
 
       AppLogger.i('Email to verify: $emailText');
-
-      Get.toNamed(AppRoute.verifycode);
-      email.clear();
     } else {
       AppLogger.w('Form is not valid');
     }

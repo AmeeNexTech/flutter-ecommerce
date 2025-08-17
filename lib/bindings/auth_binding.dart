@@ -11,9 +11,6 @@ import 'package:get/get.dart';
 class AuthBinding extends Bindings {
   @override
   void dependencies() {
-    // ===== تسجيل جميع Controllers الخاصة بالمصادقة =====
-    // يتم تسجيلها عند الحاجة فقط (lazy loading)
-    // fenix: true يضمن بقاءها في الذاكرة بعد الاستخدام الأول
     Get.lazyPut<LoginControllerImp>(() => LoginControllerImp());
     Get.lazyPut<SignupControllerImp>(() => SignupControllerImp());
     Get.lazyPut<VerifyEmailControllerImp>(() => VerifyEmailControllerImp());

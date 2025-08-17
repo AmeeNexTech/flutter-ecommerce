@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 abstract class VerifyEmailController extends GetxController {
   verifyOtp(TextEditingController controller);
+  resendOtp();
 }
 
 class VerifyEmailControllerImp extends VerifyEmailController {
@@ -38,6 +39,7 @@ class VerifyEmailControllerImp extends VerifyEmailController {
         !RegExp(r'^\d{6}$').hasMatch(pinController.text)) {
       errorController.add(ErrorAnimationType.shake);
       hasError.value = true;
+      pinController.clear();
       return;
     }
     hasError.value = false;
@@ -60,7 +62,8 @@ class VerifyEmailControllerImp extends VerifyEmailController {
       Get.offAllNamed(AppRoute.successverifyemail);
     } catch (e) {
       errorController.add(ErrorAnimationType.shake);
-      controller.clear();
+      hasError.value = true;
+      pinController.clear();
 
       showErrorSnackbar(title: 'error', message: e.toString());
       AppLogger.e('Verify OTP error: $e');
@@ -69,6 +72,7 @@ class VerifyEmailControllerImp extends VerifyEmailController {
     }
   }
 
+  @override
   Future<void> resendOtp() async {
     isLoading.value = true;
     try {

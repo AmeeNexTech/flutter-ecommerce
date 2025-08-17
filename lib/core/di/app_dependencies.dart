@@ -24,7 +24,7 @@ class AppDependencies {
 
       // ===== خدمات التطبيق =====
 
-      // حقن LocaleController بعد التأكد من تهيئة LocalStorageService
+      // LocalStorageService بعد التأكد من تهيئة LocaleController حقن
       Get.lazyPut<LocaleController>(() => LocaleController(), fenix: true);
 
       // مصادر البيانات

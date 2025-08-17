@@ -1,10 +1,9 @@
-import 'package:pin_code_fields/pin_code_fields.dart';
-
 import '../../../controller/auth/verifyemail_controller.dart';
 import '../../../core/constant/background_container.dart';
 import '../../../core/constant/color.dart';
 import '../../widget/auth/customappbarauthandback.dart';
 import '../../widget/auth/custombuttomauth.dart';
+import '../../widget/auth/customotpfield.dart';
 import '../../widget/auth/customtextroutto.dart';
 import '../../widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
@@ -55,42 +54,13 @@ class VerifyEmail extends StatelessWidget {
                 ),
 
                 SizedBox(height: isLandscape ? 20 : 30),
-
-                PinCodeTextField(
-                  appContext: context,
-                  length: 6,
+                CustomOtpField(
                   controller: controller.pinController,
-                  keyboardType: TextInputType.number,
-                  animationType: AnimationType.fade,
-                  enableActiveFill: true,
-                  onChanged: (value) {},
+                  errorController: controller.errorController,
                   onCompleted: (value) {
                     controller.verifyOtp(controller.pinController);
                   },
-                  errorAnimationController: controller.errorController,
-                  pinTheme: PinTheme(
-                    shape: PinCodeFieldShape.box,
-                    borderRadius: BorderRadius.circular(12),
-                    fieldHeight: 55,
-                    fieldWidth: 45,
-                    activeFillColor: Colors.white,
-                    selectedFillColor: Colors.white,
-                    inactiveFillColor: Colors.white,
-                    activeColor: Colors.blue,
-                    selectedColor: Colors.blueAccent,
-                    inactiveColor: Colors.grey,
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-                Obx(
-                  () =>
-                      controller.hasError.value
-                          ? const Text(
-                            'يرجى إدخال رمز مكون من 6 أرقام صحيحة',
-                            style: TextStyle(color: Colors.red, fontSize: 13),
-                          )
-                          : const SizedBox.shrink(),
+                  hasError: controller.hasError,
                 ),
                 SizedBox(height: isLandscape ? 20 : 30),
                 CustomTextroutto(
