@@ -28,6 +28,22 @@ abstract class IUserRemoteDataSource {
   Future<LogoutResponse> logout();
 
   Future<DeleteAccountResponse> deleteAccount({required String password});
+
+  Future<ForgotPasswordResponse> forgotPassword({required String email});
+
+  Future<VerifyResetOtpResponse> verifyResetOtp({
+    required String email,
+    required String otp,
+  });
+
+  Future<ForgotPasswordResponse> resendResetOtp({required String email});
+
+  Future<ResetPasswordResponse> resetPassword({
+    required String email,
+    required String otp,
+    required String password,
+    required String passwordConfirmation,
+  });
 }
 
 class UserRemoteDataSource implements IUserRemoteDataSource {
@@ -121,6 +137,71 @@ class UserRemoteDataSource implements IUserRemoteDataSource {
         data: {'password': password},
       );
       return DeleteAccountResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<ForgotPasswordResponse> forgotPassword({required String email}) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.forgotPassword,
+        data: {'email': email},
+      );
+      return ForgotPasswordResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<VerifyResetOtpResponse> verifyResetOtp({
+    required String email,
+    required String otp,
+  }) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.verifyResetOtp,
+        data: {'email': email, 'otp': otp},
+      );
+      return VerifyResetOtpResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<ForgotPasswordResponse> resendResetOtp({required String email}) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.resendResetOtp,
+        data: {'email': email},
+      );
+      return ForgotPasswordResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw ApiErrorHandler.handleError(e);
+    }
+  }
+
+  @override
+  Future<ResetPasswordResponse> resetPassword({
+    required String email,
+    required String otp,
+    required String password,
+    required String passwordConfirmation,
+  }) async {
+    try {
+      final response = await _dioClient.dio.post(
+        ApiEndpoints.resetPassword,
+        data: {
+          'email': email,
+          'otp': otp,
+          'password': password,
+          'password_confirmation': passwordConfirmation,
+        },
+      );
+      return ResetPasswordResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw ApiErrorHandler.handleError(e);
     }

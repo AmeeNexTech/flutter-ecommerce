@@ -160,3 +160,78 @@ class DeleteAccountResponse {
       _$DeleteAccountResponseFromJson(json);
   Map<String, dynamic> toJson() => _$DeleteAccountResponseToJson(this);
 }
+
+@JsonSerializable()
+class ForgotPasswordResponse {
+  final String status;
+  final String message;
+  final ForgotPasswordData data;
+  final String timestamp;
+
+  ForgotPasswordResponse({
+    required this.status,
+    required this.message,
+    required this.data,
+    required this.timestamp,
+  });
+
+  factory ForgotPasswordResponse.fromJson(Map<String, dynamic> json) =>
+      _$ForgotPasswordResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$ForgotPasswordResponseToJson(this);
+}
+
+@JsonSerializable()
+class ForgotPasswordData {
+  final String email;
+  @JsonKey(name: 'otp_expires_at')
+  final String otpExpiresAt;
+
+  ForgotPasswordData({required this.email, required this.otpExpiresAt});
+
+  factory ForgotPasswordData.fromJson(Map<String, dynamic> json) =>
+      _$ForgotPasswordDataFromJson(json);
+  Map<String, dynamic> toJson() => _$ForgotPasswordDataToJson(this);
+}
+
+@JsonSerializable()
+class VerifyResetOtpResponse {
+  final String status;
+  final String message;
+
+  VerifyResetOtpResponse({required this.status, required this.message});
+
+  factory VerifyResetOtpResponse.fromJson(Map<String, dynamic> json) =>
+      _$VerifyResetOtpResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$VerifyResetOtpResponseToJson(this);
+}
+
+@JsonSerializable()
+class ResetPasswordResponse {
+  final String status;
+  final String message;
+  final ResetPasswordData data;
+
+  ResetPasswordResponse({
+    required this.status,
+    required this.message,
+    required this.data,
+  });
+
+  factory ResetPasswordResponse.fromJson(Map<String, dynamic> json) =>
+      _$ResetPasswordResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResetPasswordResponseToJson(this);
+}
+
+@JsonSerializable()
+class ResetPasswordData {
+  final UserModel user;
+  final String token;
+
+  ResetPasswordData({required this.user, required this.token});
+
+  factory ResetPasswordData.fromJson(Map<String, dynamic> json) =>
+      _$ResetPasswordDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResetPasswordDataToJson(this);
+}

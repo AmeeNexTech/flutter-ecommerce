@@ -1,7 +1,8 @@
 import '../../../../controller/auth/forgetpassword/resetpassword_controller.dart';
 import '../../../../core/constant/background_container.dart';
+import '../../../../core/constant/color.dart';
+import '../../../../core/constant/routes.dart';
 import '../../../../core/utils/validation_utils.dart';
-import '../../../widget/auth/customappbarauthandback.dart';
 import '../../../widget/auth/custombuttomauth.dart';
 import '../../../widget/auth/customtextbodyauth.dart';
 import '../../../widget/auth/customtextformauth.dart';
@@ -22,7 +23,27 @@ class ResetPassword extends StatelessWidget {
     final isTablet = screenSize.width > 600;
 
     return Scaffold(
-      appBar: Customappbarauthandback(text: 'reset_password'.tr),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.backgroundcolor,
+        elevation: 0.0,
+        title: Text(
+          'reset_password'.tr,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            color: AppColor.grey,
+            fontSize: 20,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          color: AppColor.grey,
+          onPressed: () {
+            Get.offAllNamed(AppRoute.login);
+          },
+        ),
+      ),
+      // When used, it steps backward and the interface behind it has been removed, so it is not suitable for use.
+      //  Customappbarauthandback(text: 'reset_password'.tr),
       body: BackgroundContainer(
         padding: EdgeInsets.all(isLandscape ? 16 : 20),
         child: Center(
@@ -30,7 +51,7 @@ class ResetPassword extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: isTablet ? 600 : 500),
             child: Form(
               key: controller.formstate,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
+              autovalidateMode: controller.autovalidateMode,
               child: ListView(
                 children: [
                   SizedBox(height: isLandscape ? 20 : 40),
@@ -82,10 +103,16 @@ class ResetPassword extends StatelessWidget {
                         ),
                   ),
                   SizedBox(height: isLandscape ? 30 : 40),
-                  Custombuttomauth(
-                    text: 'save'.tr,
-                    onPressed: () => controller.resetPassword(),
-                  ),
+                  Obx(() {
+                    final loading = controller.isLoading.value;
+                    return Custombuttomauth(
+                      text: 'save'.tr,
+                      onPressed:
+                          loading ? null : () => controller.resetPassword(),
+                      isLoading: loading,
+                      loadingText: 'save'.tr,
+                    );
+                  }),
                 ],
               ),
             ),

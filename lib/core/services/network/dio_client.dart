@@ -13,9 +13,9 @@ class DioClient extends GetxService {
     _dio = Dio(
       BaseOptions(
         baseUrl: ApiEndpoints.baseUrl,
-        connectTimeout: const Duration(seconds: 40),
-        receiveTimeout: const Duration(seconds: 40),
-        sendTimeout: const Duration(seconds: 40), // Added send timeout
+        connectTimeout: const Duration(seconds: 50),
+        receiveTimeout: const Duration(seconds: 50),
+        sendTimeout: const Duration(seconds: 50), // Added send timeout
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

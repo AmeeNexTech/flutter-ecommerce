@@ -7,6 +7,7 @@ import '../../controller/home_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/imageasset.dart';
 import '../../core/utils/validation_utils.dart';
+import '../../data/model/auth/user_model.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -20,17 +21,34 @@ class Home extends StatelessWidget {
         children: [
           // المحتوى الأساسي
           Center(
-            child: FutureBuilder<String>(
+            child: FutureBuilder<UserModel?>(
               future: controller.getdata(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
-                  return Text('خطأ: ${snapshot.error}');
-                } else if (!snapshot.hasData) {
-                  return const Text('لا توجد بيانات');
+                  return Text('Error: ${snapshot.error}');
+                } else if (!snapshot.hasData || snapshot.data == null) {
+                  return const Text('No user data available');
                 } else {
-                  return Text(snapshot.data!);
+                  final user = snapshot.data!;
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('👤 ID: ${user.id}'),
+                      const SizedBox(height: 20),
+                      Text('📛 Name: ${user.name}'),
+                      const SizedBox(height: 20),
+                      Text('📧 Email: ${user.email}'),
+                      const SizedBox(height: 20),
+                      Text('📱 Phone: ${user.phoneNumber}'),
+                      const SizedBox(height: 20),
+                      Text('🕒 Created At: ${user.createdAt}'),
+                      const SizedBox(height: 20),
+                      Text('🔄 Updated At: ${user.updatedAt}'),
+                      const SizedBox(height: 20),
+                    ],
+                  );
                 }
               },
             ),

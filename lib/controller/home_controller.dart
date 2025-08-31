@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 
 import '../core/constant/routes.dart';
 import '../core/services/storage/token_service.dart';
+import '../core/utils/app_logger.dart';
 import '../core/utils/snackbar_util.dart';
+import '../data/model/auth/user_model.dart';
 import '../data/repository/auth/user_repository.dart';
 
 abstract class HomeController extends GetxController {
-  getdata();
+  Future<UserModel?> getdata();
   logout();
   deleteAccount();
 }
@@ -35,16 +37,17 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  Future<String> getdata() async {
+  Future<UserModel?> getdata() async {
     try {
       final user = await _tokenService.getUser();
       if (user == null) {
-        return 'No user found';
+        return null;
       }
-      final username = user['name'] ?? user['username'] ?? 'Guest';
-      return 'Welcome $username';
+
+      return user;
     } catch (e) {
-      return 'Error loading user data';
+      AppLogger.e('Error loading user: $e');
+      return null;
     }
   }
 

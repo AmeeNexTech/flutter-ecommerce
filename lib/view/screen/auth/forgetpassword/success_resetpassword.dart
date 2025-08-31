@@ -67,7 +67,7 @@ class _SuccessResetPasswordState extends State<SuccessResetPassword>
                   ),
                 ),
                 SizedBox(height: isLandscape ? 8 : 10),
-                Customtextbodyauth(text: 'go_to_login'.tr),
+                Customtextbodyauth(text: 'go_to_home'.tr),
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import '../../../../controller/auth/forgetpassword/recoverpassword_controller.dart';
 import '../../../../core/constant/background_container.dart';
+import '../../../../core/utils/app_logger.dart';
 import '../../../../core/utils/validation_utils.dart';
 import '../../../widget/auth/customappbarauthandback.dart';
 import '../../../widget/auth/custombuttomauth.dart';
@@ -50,12 +51,21 @@ class RecoverPassword extends StatelessWidget {
                     onSaved: (val) => controller.emailText = val!.trim(),
                   ),
                   SizedBox(height: isLandscape ? 30 : 40),
-                  Custombuttomauth(
-                    text: 'send_code'.tr,
-                    onPressed: () {
-                      controller.goToVerifyCode();
-                    },
-                  ),
+                  Obx(() {
+                    final loading = controller.isLoading.value;
+                    return Custombuttomauth(
+                      text: 'send_code'.tr,
+                      onPressed:
+                          loading
+                              ? null
+                              : () {
+                                AppLogger.i('Send code button pressed');
+                                controller.validateEmail();
+                              },
+                      isLoading: loading,
+                      loadingText: 'Send Code',
+                    );
+                  }),
                   SizedBox(height: isLandscape ? 16 : 20),
                   CustomTextroutto(
                     text: 'remember_password'.tr,

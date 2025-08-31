@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/auth/user_model.dart';
 import '../../utils/app_logger.dart';
 
 class TokenService extends GetxService {
@@ -32,11 +33,13 @@ class TokenService extends GetxService {
   }
 
   // استرجاع بيانات المستخدم
-  Future<Map<String, dynamic>?> getUser() async {
+  Future<UserModel?> getUser() async {
     final jsonString = await _storage.read(key: _userKey);
     if (jsonString == null) return null;
+
     try {
-      return jsonDecode(jsonString);
+      final Map<String, dynamic> jsonData = jsonDecode(jsonString);
+      return UserModel.fromJson(jsonData);
     } catch (e) {
       return null;
     }

@@ -133,3 +133,69 @@ Map<String, dynamic> _$DeleteAccountResponseToJson(
   'message': instance.message,
   'timestamp': instance.timestamp,
 };
+
+ForgotPasswordResponse _$ForgotPasswordResponseFromJson(
+  Map<String, dynamic> json,
+) => ForgotPasswordResponse(
+  status: json['status'] as String,
+  message: json['message'] as String,
+  data: ForgotPasswordData.fromJson(json['data'] as Map<String, dynamic>),
+  timestamp: json['timestamp'] as String,
+);
+
+Map<String, dynamic> _$ForgotPasswordResponseToJson(
+  ForgotPasswordResponse instance,
+) => <String, dynamic>{
+  'status': instance.status,
+  'message': instance.message,
+  'data': instance.data,
+  'timestamp': instance.timestamp,
+};
+
+ForgotPasswordData _$ForgotPasswordDataFromJson(Map<String, dynamic> json) =>
+    ForgotPasswordData(
+      email: json['email'] as String,
+      otpExpiresAt: json['otp_expires_at'] as String,
+    );
+
+Map<String, dynamic> _$ForgotPasswordDataToJson(ForgotPasswordData instance) =>
+    <String, dynamic>{
+      'email': instance.email,
+      'otp_expires_at': instance.otpExpiresAt,
+    };
+
+VerifyResetOtpResponse _$VerifyResetOtpResponseFromJson(
+  Map<String, dynamic> json,
+) => VerifyResetOtpResponse(
+  status: json['status'] as String,
+  message: json['message'] as String,
+);
+
+Map<String, dynamic> _$VerifyResetOtpResponseToJson(
+  VerifyResetOtpResponse instance,
+) => <String, dynamic>{'status': instance.status, 'message': instance.message};
+
+ResetPasswordResponse _$ResetPasswordResponseFromJson(
+  Map<String, dynamic> json,
+) => ResetPasswordResponse(
+  status: json['status'] as String,
+  message: json['message'] as String,
+  data: ResetPasswordData.fromJson(json['data'] as Map<String, dynamic>),
+);
+
+Map<String, dynamic> _$ResetPasswordResponseToJson(
+  ResetPasswordResponse instance,
+) => <String, dynamic>{
+  'status': instance.status,
+  'message': instance.message,
+  'data': instance.data,
+};
+
+ResetPasswordData _$ResetPasswordDataFromJson(Map<String, dynamic> json) =>
+    ResetPasswordData(
+      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
+      token: json['token'] as String,
+    );
+
+Map<String, dynamic> _$ResetPasswordDataToJson(ResetPasswordData instance) =>
+    <String, dynamic>{'user': instance.user, 'token': instance.token};

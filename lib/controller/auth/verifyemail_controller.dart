@@ -28,7 +28,7 @@ class VerifyEmailControllerImp extends VerifyEmailController {
   @override
   void onInit() {
     super.onInit();
-    // الحصول على البريد الإلكتروني من المعاملات
+
     email = Get.arguments['email'] ?? '';
   }
 
@@ -46,8 +46,8 @@ class VerifyEmailControllerImp extends VerifyEmailController {
     isLoading.value = true;
     try {
       final response = await _userRepository.verifyOtp(
-        email: email,
-        otp: pinController.text,
+        email: email.trim(),
+        otp: pinController.text.trim(),
       );
       // حفظ التوكن وبيانات المستخدم
       if (response.data.token.isNotEmpty) {

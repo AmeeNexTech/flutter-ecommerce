@@ -18,10 +18,6 @@ class SuccessResetPasswordController extends GetxController {
     Get.offAllNamed(AppRoute.home);
   }
 
-  // void goToLogin() {
-  //   Get.offAllNamed(AppRoute.login);
-  // }
-
   @override
   void onClose() {
     animationController.dispose();
