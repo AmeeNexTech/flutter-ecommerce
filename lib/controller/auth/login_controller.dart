@@ -53,10 +53,10 @@ class LoginControllerImp extends LoginController {
       }
       await _tokenService.saveUser(response.data.user.toJson());
 
-      showSuccessSnackbar(title: 'Login Successful', message: response.message);
+      showSuccessSnackbar(message: response.message);
       Get.offAllNamed(AppRoute.home);
     } catch (e) {
-      showErrorSnackbar(title: 'Login Failed', message: e.toString());
+      showErrorSnackbar(message: e.toString());
       AppLogger.e('Login error: $e');
     } finally {
       isLoading.value = false;

@@ -73,12 +73,12 @@ class VerifyEmail extends StatelessWidget {
                 SizedBox(height: isLandscape ? 20 : 30),
                 Obx(
                   () => Custombuttomauth(
-                    text: 'verify',
+                    text: 'verify'.tr,
                     onPressed: () {
                       controller.verifyOtp(controller.pinController);
                     },
                     isLoading: controller.isLoading.value,
-                    loadingText: 'verifying',
+                    loadingText: 'verifying'.tr,
                   ),
                 ),
               ],

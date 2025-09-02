@@ -76,6 +76,16 @@ class MyTranslation extends Translations {
       'successs': 'تم بنجاح',
       'done_check': 'تم التحقق من بريدك الإلكتروني بنجاح',
 
+      // Buttons/loading
+      'verify': 'تحقق',
+      'verifying': 'جاري التحقق...',
+
+      // OTP error message
+      'otp_invalid': 'يرجى إدخال رمز مكون من 6 أرقام صالح',
+
+      // App name
+      'app_name': 'متجر شوبوريا',
+
       'validation.email.empty': 'أدخل البريد الإلكتروني',
       'validation.email.missing_at': 'يجب أن يحتوي على @',
       'validation.email.missing_dot': 'يجب أن يحتوي على نقطة',
@@ -104,6 +114,28 @@ class MyTranslation extends Translations {
       'exit_desc': 'هل أنت متأكد أنك تريد الخروج من التطبيق؟',
       'exit_yes': 'نعم',
       'exit_no': 'لا',
+
+      // Snackbar default titles
+      'error': 'خطأ',
+      'info': 'معلومة',
+
+      // API error messages
+      'error.connection_timeout': 'انتهت المهلة. تحقق من اتصالك بالإنترنت.',
+      'error.request_cancelled': 'تم إلغاء الطلب',
+      'error.no_internet': 'لا يوجد اتصال بالإنترنت',
+      'error.generic_try_again': 'حدث خطأ ما. يرجى المحاولة مرة أخرى.',
+      'error.unexpected': 'حدث خطأ غير متوقع.',
+      'error.bad_request': 'طلب غير صالح. يرجى التحقق من الإدخال.',
+      'error.unauthorized': 'غير مصرح. يرجى تسجيل الدخول مجددًا.',
+      'error.forbidden': 'تم رفض الوصول.',
+      'error.not_found': 'المورد غير موجود.',
+      'error.validation_failed': 'فشل التحقق. يرجى التحقق من الإدخال.',
+      'error.too_many_requests': 'طلبات كثيرة. حاول لاحقًا.',
+      'error.server_error': 'خطأ في الخادم. حاول لاحقًا.',
+      'error.something_wrong': 'حدث خطأ ما.',
+      'error.processing_request': 'حدث خطأ أثناء معالجة الطلب.',
+      'error.invalid_password': 'كلمة المرور غير صحيحة',
+      'Send_Code': 'إرسال الرمز',
     },
     'en': {
       '1': 'Language',
@@ -168,7 +200,7 @@ class MyTranslation extends Translations {
       'confirm_password': 'Confirm password',
       'save': 'Save',
 
-      'success': 'Successfully completed',
+      'success': 'Success',
       'password_reset_successful': 'Password Reset Successful',
       'go_to_home': 'You will be redirected to the home page.',
 
@@ -180,6 +212,16 @@ class MyTranslation extends Translations {
       'resend_code': 'Resend Code',
       'successs': 'Success',
       'done_check': 'Your email has been verified successfully',
+
+      // Buttons/loading
+      'verify': 'Verify',
+      'verifying': 'Verifying...',
+
+      // OTP error message
+      'otp_invalid': 'Please enter a valid 6-digit code',
+
+      // App name
+      'app_name': 'Ecommerce Shoporia',
 
       'validation.email.empty': 'Enter your email',
       'validation.email.missing_at': 'Must contain @',
@@ -209,6 +251,30 @@ class MyTranslation extends Translations {
       'exit_desc': 'Are you sure you want to exit the app?',
       'exit_yes': 'Yes',
       'exit_no': 'No',
+
+      // Snackbar default titles
+      'error': 'Error',
+      'info': 'Info',
+
+      // API error messages
+      'error.connection_timeout':
+          'Connection timeout. Please check your internet connection.',
+      'error.request_cancelled': 'Request was cancelled',
+      'error.no_internet': 'No internet connection',
+      'error.generic_try_again': 'Something went wrong. Please try again.',
+      'error.unexpected': 'An unexpected error occurred.',
+      'error.bad_request': 'Bad request. Please check your input.',
+      'error.unauthorized': 'Unauthorized. Please login again.',
+      'error.forbidden': 'Access denied.',
+      'error.not_found': 'Resource not found.',
+      'error.validation_failed': 'Validation failed. Please check your input.',
+      'error.too_many_requests': 'Too many requests. Please try again later.',
+      'error.server_error': 'Server error. Please try again later.',
+      'error.something_wrong': 'Something went wrong.',
+      'error.processing_request':
+          'An error occurred while processing the request.',
+      'error.invalid_password': 'Invalid password',
+      'Send_Code': 'Send Code',
     },
   };
 }

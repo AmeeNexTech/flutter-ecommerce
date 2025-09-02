@@ -55,7 +55,7 @@ class VerifyEmailControllerImp extends VerifyEmailController {
       }
       await _tokenService.saveUser(response.data.user.toJson());
 
-      showSuccessSnackbar(title: 'success'.tr, message: response.message);
+      showSuccessSnackbar(message: response.message);
 
       // الانتقال للهوم أو واجهة النجاح
       await Future.delayed(const Duration(milliseconds: 300));
@@ -65,7 +65,7 @@ class VerifyEmailControllerImp extends VerifyEmailController {
       hasError.value = true;
       pinController.clear();
 
-      showErrorSnackbar(title: 'error', message: e.toString());
+      showErrorSnackbar(message: e.toString());
       AppLogger.e('Verify OTP error: $e');
     } finally {
       isLoading.value = false;
@@ -77,9 +77,9 @@ class VerifyEmailControllerImp extends VerifyEmailController {
     isLoading.value = true;
     try {
       final response = await _userRepository.resendOtp(email: email);
-      showInfoSnackbar(title: 'info', message: response.message);
+      showInfoSnackbar(message: response.message);
     } catch (e) {
-      showErrorSnackbar(title: 'error', message: e.toString());
+      showErrorSnackbar(message: e.toString());
     } finally {
       isLoading.value = false;
     }

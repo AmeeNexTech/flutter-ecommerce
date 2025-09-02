@@ -63,7 +63,7 @@ class RecoverPassword extends StatelessWidget {
                                 controller.validateEmail();
                               },
                       isLoading: loading,
-                      loadingText: 'Send Code',
+                      loadingText: 'Send_Code'.tr,
                     );
                   }),
                   SizedBox(height: isLandscape ? 16 : 20),

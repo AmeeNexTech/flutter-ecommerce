@@ -46,11 +46,11 @@ class SignupControllerImp extends SignupController {
         password: password.text,
       );
 
-      showSuccessSnackbar(title: 'success', message: response.message);
+      showSuccessSnackbar(message: response.message);
 
       Get.toNamed(AppRoute.verifyemail, arguments: {'email': email.text});
     } catch (e) {
-      showErrorSnackbar(title: 'error', message: e.toString());
+      showErrorSnackbar(message: e.toString());
       AppLogger.e('Signup error: $e');
     } finally {
       isLoading.value = false;

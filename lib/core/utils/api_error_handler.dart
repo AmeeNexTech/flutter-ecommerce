@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:get/get.dart' hide Response;
 
 class ApiErrorHandler {
   static String handleError(error) {
@@ -7,22 +8,22 @@ class ApiErrorHandler {
         case DioExceptionType.connectionTimeout:
         case DioExceptionType.sendTimeout:
         case DioExceptionType.receiveTimeout:
-          return 'Connection timeout. Please check your internet connection.';
+          return 'error.connection_timeout'.tr;
 
         case DioExceptionType.badResponse:
           return _handleResponseError(error.response);
 
         case DioExceptionType.cancel:
-          return 'Request was cancelled';
+          return 'error.request_cancelled'.tr;
 
         case DioExceptionType.connectionError:
-          return 'No internet connection';
+          return 'error.no_internet'.tr;
 
         default:
-          return 'Something went wrong. Please try again.';
+          return 'error.generic_try_again'.tr;
       }
     }
-    return 'An unexpected error occurred.';
+    return 'error.unexpected'.tr;
   }
 
   static String _handleResponseError(Response? response) {
@@ -43,24 +44,24 @@ class ApiErrorHandler {
 
       switch (response.statusCode) {
         case 400:
-          return 'Bad request. Please check your input.';
+          return 'error.bad_request'.tr;
         case 401:
-          return 'Unauthorized. Please login again.';
+          return 'error.unauthorized'.tr;
         case 403:
-          return 'Access denied.';
+          return 'error.forbidden'.tr;
         case 404:
-          return 'Resource not found.';
+          return 'error.not_found'.tr;
         case 422:
-          return 'Validation failed. Please check your input.';
+          return 'error.validation_failed'.tr;
         case 429:
-          return 'Too many requests. Please try again later.';
+          return 'error.too_many_requests'.tr;
         case 500:
-          return 'Server error. Please try again later.';
+          return 'error.server_error'.tr;
         default:
-          return 'Something went wrong.';
+          return 'error.something_wrong'.tr;
       }
     }
 
-    return 'An error occurred while processing the request.';
+    return 'error.processing_request'.tr;
   }
 }

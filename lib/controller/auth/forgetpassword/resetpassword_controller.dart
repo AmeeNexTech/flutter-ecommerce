@@ -62,13 +62,13 @@ class ResetPasswordControllerImp extends ResetPasswordController {
         await _tokenService.saveToken(response.data.token);
       }
       await _tokenService.saveUser(response.data.user.toJson());
-      showSuccessSnackbar(title: 'Success', message: response.message);
+      showSuccessSnackbar(message: response.message);
       Get.offAllNamed(AppRoute.successresetpassword);
 
       password.clear();
       repassword.clear();
     } catch (e) {
-      showErrorSnackbar(title: 'Reset  Failed', message: e.toString());
+      showErrorSnackbar(message: e.toString());
       AppLogger.e('Reset  error: $e');
     } finally {
       isLoading.value = false;

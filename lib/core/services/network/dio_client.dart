@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import '../../constant/api_endpoints.dart';
 import '../storage/token_service.dart';
 import 'package:get/get.dart';
+import '../../localization/changelocal.dart';
+import '../storage/local_storage_service.dart';
 
 class DioClient extends GetxService {
   late Dio _dio;
@@ -30,6 +32,21 @@ class DioClient extends GetxService {
           if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';
           }
+
+          // Inject Accept-Language from current app locale
+          String? langCode = Get.locale?.languageCode;
+          if (langCode == null || langCode.isEmpty) {
+            try {
+              langCode = Get.find<LocaleController>().language?.languageCode;
+            } catch (_) {}
+          }
+          if (langCode == null || langCode.isEmpty) {
+            try {
+              langCode = Get.find<LocalStorageService>().sharedPreferences
+                  .getString('lang');
+            } catch (_) {}
+          }
+          options.headers['Accept-Language'] = langCode ?? 'en';
 
           return handler.next(options);
         },

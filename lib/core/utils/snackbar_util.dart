@@ -21,9 +21,9 @@ void _showSnackbar({
   );
 }
 
-void showSuccessSnackbar({required String title, required String message}) {
+void showSuccessSnackbar({String? title, required String message}) {
   _showSnackbar(
-    title: title,
+    title: title ?? 'success'.tr,
     message: message,
     backgroundColor: Colors.green,
     icon: Icons.check_circle,
@@ -31,9 +31,9 @@ void showSuccessSnackbar({required String title, required String message}) {
   );
 }
 
-void showErrorSnackbar({required String title, required String message}) {
+void showErrorSnackbar({String? title, required String message}) {
   _showSnackbar(
-    title: title,
+    title: title ?? 'error'.tr,
     message: message,
     backgroundColor: Colors.red,
     icon: Icons.error,
@@ -41,9 +41,9 @@ void showErrorSnackbar({required String title, required String message}) {
   );
 }
 
-void showInfoSnackbar({required String title, required String message}) {
+void showInfoSnackbar({String? title, required String message}) {
   _showSnackbar(
-    title: title,
+    title: title ?? 'info'.tr,
     message: message,
     backgroundColor: Colors.blue,
     icon: Icons.info,

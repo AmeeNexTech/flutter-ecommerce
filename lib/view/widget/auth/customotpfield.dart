@@ -48,9 +48,9 @@ class CustomOtpField extends StatelessWidget {
         Obx(
           () =>
               hasError.value
-                  ? const Text(
-                    'Please enter a valid 6-digit code',
-                    style: TextStyle(color: Colors.red, fontSize: 13),
+                  ? Text(
+                    'otp_invalid'.tr,
+                    style: const TextStyle(color: Colors.red, fontSize: 13),
                   )
                   : const SizedBox.shrink(),
         ),

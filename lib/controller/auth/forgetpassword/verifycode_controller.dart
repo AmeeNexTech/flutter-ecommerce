@@ -51,7 +51,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
       );
 
       if (response.status == 'success') {
-        showSuccessSnackbar(title: 'success'.tr, message: response.message);
+        showSuccessSnackbar(message: response.message);
         await Future.delayed(const Duration(milliseconds: 300));
         Get.offAllNamed(
           AppRoute.resetpassword,
@@ -62,14 +62,14 @@ class VerifyCodeControllerImp extends VerifyCodeController {
         errorController.add(ErrorAnimationType.shake);
         hasError.value = true;
         pinController.clear();
-        showErrorSnackbar(title: 'error', message: response.message);
+        showErrorSnackbar(message: response.message);
       }
     } catch (e) {
       errorController.add(ErrorAnimationType.shake);
       hasError.value = true;
       pinController.clear();
 
-      showErrorSnackbar(title: 'error', message: e.toString());
+      showErrorSnackbar(message: e.toString());
       AppLogger.e('Verify OTP error: $e');
     } finally {
       isLoading.value = false;
@@ -81,9 +81,9 @@ class VerifyCodeControllerImp extends VerifyCodeController {
     isLoading.value = true;
     try {
       final response = await _userRepository.resendResetOtp(email: email);
-      showInfoSnackbar(title: 'info', message: response.message);
+      showInfoSnackbar(message: response.message);
     } catch (e) {
-      showErrorSnackbar(title: 'error', message: e.toString());
+      showErrorSnackbar(message: e.toString());
     } finally {
       isLoading.value = false;
     }

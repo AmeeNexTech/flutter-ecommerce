@@ -58,7 +58,7 @@ class HomeControllerImp extends HomeController {
       isLoading.value = true;
       final response = await _userRepository.logout();
       await _tokenService.deleteToken();
-      showSuccessSnackbar(title: 'success', message: response.message);
+      showSuccessSnackbar(message: response.message);
       Get.offAllNamed(AppRoute.login);
     } catch (e) {
       if (e.toString().contains('401') ||
@@ -66,7 +66,7 @@ class HomeControllerImp extends HomeController {
         await _tokenService.deleteToken();
         Get.offAllNamed(AppRoute.login);
       } else {
-        showErrorSnackbar(title: 'خطأ', message: e.toString());
+        showErrorSnackbar(message: e.toString());
       }
     } finally {
       isLoading.value = false;
@@ -88,17 +88,17 @@ class HomeControllerImp extends HomeController {
 
       await _tokenService.deleteToken();
 
-      showSuccessSnackbar(title: 'success', message: response.message);
+      showSuccessSnackbar(message: response.message);
 
       Get.offAllNamed(AppRoute.login);
     } catch (e) {
       if (e.toString().contains('Invalid password')) {
-        showErrorSnackbar(title: 'خطأ', message: 'Invalid password');
+        showErrorSnackbar(message: 'error.invalid_password'.tr);
       } else if (e.toString().contains('401')) {
         await _tokenService.deleteToken();
         Get.offAllNamed(AppRoute.login);
       } else {
-        showErrorSnackbar(title: 'خطأ', message: e.toString());
+        showErrorSnackbar(message: e.toString());
       }
     } finally {
       isLoading.value = false;
