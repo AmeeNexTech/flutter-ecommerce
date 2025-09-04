@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,7 @@ class Customtextformauth extends StatelessWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final VoidCallback? suffixIconOnTap;
+  final List<TextInputFormatter>? inputFormatters;
 
   const Customtextformauth({
     super.key,
@@ -21,6 +24,7 @@ class Customtextformauth extends StatelessWidget {
     this.onSaved,
     this.obscureText = false,
     this.suffixIconOnTap,
+    this.inputFormatters,
   });
 
   @override
@@ -30,6 +34,7 @@ class Customtextformauth extends StatelessWidget {
       controller: mycontroller,
       onSaved: onSaved,
       keyboardType: keyboardType,
+      inputFormatters: inputFormatters,
       obscureText: obscureText,
       cursorColor: AppColor.primaryColor,
       style: const TextStyle(

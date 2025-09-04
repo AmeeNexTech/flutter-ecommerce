@@ -12,6 +12,8 @@ class Customappbarauthandback extends StatelessWidget
     return AppBar(
       centerTitle: true,
       backgroundColor: AppColor.backgroundcolor,
+      scrolledUnderElevation: 0,
+      surfaceTintColor: Colors.transparent,
       elevation: 0.0,
       title: Text(
         text,

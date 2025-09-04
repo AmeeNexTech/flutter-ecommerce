@@ -55,7 +55,7 @@ class MyTranslation extends Translations {
 
       'verify_code': 'تحقق من الرمز',
       'enter_verification_code': 'أدخل رمز التحقق',
-      'code_sent_to': 'تم إرسال رمز مكون من 6 أرقام إلى بريدك الإلكتروني:',
+      'code_sent_to': 'تم إرسال رمز مكون من 6 أرقام إلى بريدك الإلكتروني',
 
       'reset_password': 'إعادة تعيين كلمة المرور',
       'reset_password_title': 'أعد تعيين كلمة المرور',
@@ -97,7 +97,7 @@ class MyTranslation extends Translations {
       'validation.username.invalid_chars': 'مسموح بالحروف، الأرقام، و (_) فقط',
 
       'validation.phone.empty': 'أدخل رقم الهاتف',
-      'validation.phone.invalid_format': 'الصيغة غير صحيحة (8-15 رقمًا)',
+      'validation.phone.invalid_format': 'الصيغة غير صحيحة (11 رقمًا)',
 
       'validation.password.empty': 'أدخل كلمة المرور',
       'validation.password.too_short': 'قصيرة (8+ أحرف)',
@@ -234,7 +234,7 @@ class MyTranslation extends Translations {
       'validation.username.invalid_chars': 'Only letters, numbers, _',
 
       'validation.phone.empty': 'Enter phone number',
-      'validation.phone.invalid_format': 'Invalid format (8–15 digits)',
+      'validation.phone.invalid_format': 'Invalid format (11 digits)',
 
       'validation.password.empty': 'Enter password',
       'validation.password.too_short': 'Too short (min 8)',

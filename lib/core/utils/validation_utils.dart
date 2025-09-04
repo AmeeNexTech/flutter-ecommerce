@@ -39,7 +39,7 @@ String? validatePhone(String val) {
   if (val.isEmpty) {
     return 'validation.phone.empty'.tr;
   }
-  if (!RegExp(r'^[0-9]{8,15}$').hasMatch(val)) {
+  if (!RegExp(r'^[0-9]{11}$').hasMatch(val)) {
     return 'validation.phone.invalid_format'.tr;
   }
   return null;

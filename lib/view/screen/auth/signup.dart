@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../../../controller/auth/signup_controller.dart';
 import '../../../core/constant/background_container.dart';
 import '../../../core/utils/alertexitapp.dart';
@@ -81,6 +83,10 @@ class SignUp extends StatelessWidget {
                             mycontroller: controller.phone,
                             iconData: Icons.phone_android_outlined,
                             keyboardType: TextInputType.phone,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(11),
+                            ],
                             onSaved:
                                 (val) => controller.phone.text = val!.trim(),
                           ),
