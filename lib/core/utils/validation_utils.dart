@@ -28,7 +28,7 @@ String? validateUsername(String val) {
   if (val.length > 20) {
     return 'validation.username.too_long'.tr;
   }
-  if (!RegExp(r'^[a-zA-Z0-9_]+$').hasMatch(val)) {
+  if (!RegExp(r'^[a-zA-Z0-9_\u0600-\u06FF ]+$').hasMatch(val)) {
     return 'validation.username.invalid_chars'.tr;
   }
   return null;
