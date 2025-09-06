@@ -6,16 +6,13 @@ A modern Flutter e-commerce app with complete authentication system and responsi
 
 - 🔐 **Authentication**: Login, signup, email verification, password recovery
 - 🎨 **UI/UX**: Responsive design, animations, Arabic/English support
-- 🔒 **Security**: Secure token storage, input validation, error handling
-- 📱 **Cross-platform**: Android, iOS ready
+- 🔒 **Security**: Secure token storage, input validation, 
 
 ## 🔧 **In Development**
 - 🛒 Product catalog and shopping cart
-- 💳 Payment integration
-- 📍 Order tracking
+
 
 ## 🎯 **Planned Features**
-- 🛒 Product catalog and search
 - 🛍️ Shopping cart and checkout
 - ❤️ Wishlist and favorites
 - 📍 Order tracking
