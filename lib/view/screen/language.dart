@@ -1,3 +1,4 @@
+import '../../core/constant/color.dart';
 import '../../core/constant/routes.dart';
 import '../../core/localization/changelocal.dart';
 import '../widget/language/custombuttomlang.dart';
@@ -15,6 +16,7 @@ class Language extends StatelessWidget {
     final isPortrait = screenSize.height > screenSize.width;
 
     return Scaffold(
+      backgroundColor: AppColor.backgroundcolor,
       body: SafeArea(
         child: Center(
           child: Padding(
