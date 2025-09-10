@@ -1,37 +1,38 @@
-import '../bindings/app_binding.dart';
-import '../bindings/auth_binding.dart';
+import '../features/home/presentation/home_binding.dart';
+import '../features/initial_flow/presentation/initial_binding.dart';
+import '../features/auth/presentation/auth_binding.dart';
 import 'package:get/get.dart';
-import '../core/constant/routes.dart';
+import 'app_routes.dart';
 
-import '../view/screen/auth/login.dart';
-import '../view/screen/auth/signup.dart';
-import '../view/screen/auth/forgetpassword/recoverpassword.dart';
-import '../view/screen/auth/forgetpassword/verifycode.dart';
-import '../view/screen/auth/forgetpassword/resetpassword.dart';
-import '../view/screen/auth/forgetpassword/success_resetpassword.dart';
-import '../view/screen/auth/verifyemail.dart';
-import '../view/screen/auth/success_signup.dart';
-import '../view/screen/home.dart';
-import '../view/screen/onboarding.dart';
-import '../view/screen/language.dart';
-import '../view/screen/splash.dart';
+import '../features/auth/presentation/screens/login.dart';
+import '../features/auth/presentation/screens/signup.dart';
+import '../features/auth/presentation/screens/forgetpassword/recoverpassword.dart';
+import '../features/auth/presentation/screens/forgetpassword/verifycode.dart';
+import '../features/auth/presentation/screens/forgetpassword/resetpassword.dart';
+import '../features/auth/presentation/screens/forgetpassword/success_resetpassword.dart';
+import '../features/auth/presentation/screens/verifyemail.dart';
+import '../features/auth/presentation/screens/success_signup.dart';
+import '../features/home/presentation/screens/home.dart';
+import '../features/initial_flow/presentation/screens/onboarding.dart';
+import '../features/initial_flow/presentation/screens/language.dart';
+import '../features/initial_flow/presentation/screens/splash.dart';
 
 class AppPages {
   static final pages = [
     // Splash Screen
-    GetPage(name: '/', page: () => const SplashScreen(), binding: AppBinding()),
+    GetPage(
+      name: '/',
+      page: () => const SplashScreen(),
+      binding: InitialBinding(),
+    ),
 
     // الصفحات العامة
-    GetPage(
-      name: AppRoute.language,
-      page: () => const Language(),
-      binding: AppBinding(),
-    ),
+    GetPage(name: AppRoute.language, page: () => const Language()),
 
     GetPage(
       name: AppRoute.onboarding,
       page: () => const OnBoarding(),
-      binding: AppBinding(),
+      binding: InitialBinding(),
     ),
 
     // صفحات المصادقة
@@ -86,7 +87,7 @@ class AppPages {
     GetPage(
       name: AppRoute.home,
       page: () => const Home(),
-      binding: AppBinding(),
+      binding: HomeBinding(),
     ),
   ];
 }

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
-import '../../../data/model/auth/user_model.dart';
+import '../../../features/auth/domain/entities/user_model.dart';
 import '../../utils/app_logger.dart';
 
 class TokenService extends GetxService {

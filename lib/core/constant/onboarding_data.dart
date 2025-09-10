@@ -1,5 +1,4 @@
 import 'imageasset.dart';
-import '../../data/model/onboardingmodel.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
@@ -23,3 +22,10 @@ List<OnBoardingModel> onBoardingList = [
     img: AppImageasset.onboardingFour,
   ),
 ];
+
+class OnBoardingModel {
+  final String? title;
+  final String? img;
+  final String? body;
+  OnBoardingModel({this.body, this.img, this.title});
+}
