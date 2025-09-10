@@ -33,7 +33,7 @@ flutter pub get
 # Run the app
 flutter run
 
----
+``` 
 
 # 🛍️ Flutter E-commerce App
 
