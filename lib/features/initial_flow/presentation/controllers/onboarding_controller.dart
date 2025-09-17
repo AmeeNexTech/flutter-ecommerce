@@ -18,7 +18,7 @@ class OnBoardingControllerImp extends OnboardingController {
   next() {
     if (currentPage >= onBoardingList.length - 1) {
       localStorageService.sharedPreferences.setBool('onboardingKey', true);
-      Get.offAllNamed(AppRoute.login);
+      Get.offAllNamed(AppRoute.home);
     } else {
       currentPage++;
       pageController.animateToPage(

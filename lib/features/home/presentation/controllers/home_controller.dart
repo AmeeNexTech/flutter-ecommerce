@@ -27,6 +27,9 @@ class HomeControllerImp extends HomeController {
   final isLoading = false.obs;
   final currentOperation = ''.obs;
 
+  // عند بدء التشغيل، تحقق من حالة المصادقة
+  // حاليا لا اتحقق لان المنطق البيزنز ان اجعله يتسوق دون ان اجبره علي التسجيل
+  /*
   @override
   void onInit() {
     super.onInit();
@@ -38,7 +41,7 @@ class HomeControllerImp extends HomeController {
       Get.offAllNamed(AppRoute.login);
     }
   }
-
+*/
   @override
   Future<UserModel?> getdata() async {
     try {
@@ -69,7 +72,7 @@ class HomeControllerImp extends HomeController {
     result.fold(
       (failure) {
         // يمكن عرض الخطأ، لكن المستخدم تم تسجيل خروجه بالفعل
-        showErrorSnackbar(message: failure.message);
+        // showErrorSnackbar(message: failure.message);
       },
       (response) {
         showSuccessSnackbar(message: response.message);

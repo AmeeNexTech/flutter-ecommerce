@@ -88,6 +88,8 @@ class AppPages {
       name: AppRoute.home,
       page: () => const Home(),
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
     ),
   ];
 }

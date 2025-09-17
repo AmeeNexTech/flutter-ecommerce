@@ -23,24 +23,22 @@ class SplashController extends GetxController {
 
   void _determineNextRoute() async {
     try {
-      // Onboarding التحقق من
+      // التحقق من Onboarding
       final hasSeenOnBoarding =
           localStorageService.sharedPreferences.getBool('onboardingKey') ??
           false;
 
       if (!hasSeenOnBoarding) {
-        // أول مرة - ابدأ بصفحة اللغة
+        // أول مرة - إلى صفحة اللغة أو Onboarding
         Get.offAllNamed(AppRoute.language);
-      } else if (await tokenService.hasToken()) {
-        // لديه توكن - اذهب للصفحة الرئيسية
-        Get.offAllNamed(AppRoute.home);
       } else {
-        // لا يوجد توكن - اذهب لصفحة تسجيل الدخول
-        Get.offAllNamed(AppRoute.login);
+        // وجّه للـ Home مباشرة كـ guest، سواء فيه توكن أو لا
+        Get.offAllNamed(AppRoute.home);
+        // اختياري: لو عايز تفرق بين guest و logged-in في Home، استخدم tokenService لتحديث UI
       }
     } catch (e) {
-      // في حالة حدوث خطأ، اذهب لصفحة تسجيل الدخول
-      Get.offAllNamed(AppRoute.login);
+      // في حالة خطأ، وجّه للـ Home كـ guest
+      Get.offAllNamed(AppRoute.home);
     }
   }
 
