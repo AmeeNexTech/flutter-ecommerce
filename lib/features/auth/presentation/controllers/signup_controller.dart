@@ -61,7 +61,7 @@ class SignupControllerImp extends SignupController {
 
   @override
   void goToLogin() {
-    Get.offNamed(AppRoute.login);
+    Get.back();
   }
 
   @override

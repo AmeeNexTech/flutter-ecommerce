@@ -5,7 +5,7 @@ import '../../../../core/constant/background_container.dart';
 import '../../../../core/utils/alertexitapp.dart';
 import '../../../../core/utils/app_logger.dart';
 import '../../../../core/utils/validation_utils.dart';
-import '../widgets/customappbarauth.dart';
+import '../widgets/customappbarauthandback.dart';
 import '../widgets/custombuttomauth.dart';
 import '../widgets/customtextbodyauth.dart';
 import '../widgets/customtextformauth.dart';
@@ -31,7 +31,7 @@ class SignUp extends StatelessWidget {
         }
       },
       child: Scaffold(
-        appBar: Customappbarauth(text: 'signUp'.tr),
+        appBar: Customappbarauthandback(text: 'signUp'.tr),
         body: BackgroundContainer(
           padding: EdgeInsets.all(isLandscape ? 16 : 20),
           child: GetBuilder<SignupControllerImp>(

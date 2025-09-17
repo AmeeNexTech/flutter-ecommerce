@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appTheme(controller.language?.languageCode),
       defaultTransition: Transition.fadeIn,
-      transitionDuration: const Duration(milliseconds: 400),
+      transitionDuration: const Duration(milliseconds: 200),
       getPages: AppPages.pages,
       initialRoute: '/',
     );

@@ -65,7 +65,7 @@ class HomeControllerImp extends HomeController {
     final result = await _logoutUseCase();
     // لا يهم إذا نجحت العملية أو فشلت، سنقوم بتسجيل خروج المستخدم محليًا
     await _tokenService.deleteToken();
-    Get.offAllNamed(AppRoute.login);
+    Get.toNamed(AppRoute.login);
 
     isLoading.value = false;
 
@@ -101,7 +101,7 @@ class HomeControllerImp extends HomeController {
       (response) async {
         await _tokenService.deleteToken();
         showSuccessSnackbar(message: response.message);
-        Get.offAllNamed(AppRoute.login);
+        Get.toNamed(AppRoute.login);
       },
     );
   }

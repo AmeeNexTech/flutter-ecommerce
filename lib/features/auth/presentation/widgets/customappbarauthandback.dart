@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '../../../../core/constant/color.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +28,7 @@ class Customappbarauthandback extends StatelessWidget
         icon: const Icon(Icons.arrow_back_ios_new),
         color: AppColor.grey,
         onPressed: () {
-          Navigator.pop(context);
+          Get.back();
         },
       ),
     );

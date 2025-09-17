@@ -4,7 +4,7 @@ import '../../../../core/constant/color.dart';
 import '../../../../core/utils/alertexitapp.dart';
 import '../../../../core/utils/app_logger.dart';
 import '../../../../core/utils/validation_utils.dart';
-import '../widgets/customappbarauth.dart';
+import '../widgets/customappbarauthandback.dart';
 import '../widgets/custombuttomauth.dart';
 import '../widgets/customtextbodyauth.dart';
 import '../widgets/customtextformauth.dart';
@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
+
   @override
   State<Login> createState() => _LoginState();
 }
@@ -44,7 +45,7 @@ class _LoginState extends State<Login> {
         }
       },
       child: Scaffold(
-        appBar: Customappbarauth(text: 'sign1'.tr),
+        appBar: Customappbarauthandback(text: 'sign1'.tr),
         body: BackgroundContainer(
           padding: EdgeInsets.all(isLandscape ? 16 : 20),
           child: GetBuilder<LoginControllerImp>(
